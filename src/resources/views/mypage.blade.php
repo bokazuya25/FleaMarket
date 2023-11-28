@@ -1,5 +1,5 @@
 @extends('layouts/app')
 
-@section('search_item')
-    
+@section('main')
+    てすと
 @endsection

@@ -17,7 +17,7 @@
         <nav class="header__nav">
             <ul class="nav__list">
                 @if (Auth::check())
-                    <form action="{{ route('logout') }}" method="post">
+                    <form action="/logout" method="post">
                         @csrf
                         <li class="nav__item"><button type="submit" class="nav__item-button">ログアウト</button></li>
                     </form>
