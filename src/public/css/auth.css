@@ -2,19 +2,19 @@ main {
     margin-top: 50px;
 }
 
-.content__title {
+.main-title {
     font-size: 2rem;
     text-align: center;
     margin: 0;
 }
 
-.content__form {
+.form-wrap {
     margin: auto;
     margin-top: 40px;
     width: 400px;
 }
 
-.form__label {
+.form-wrap__label {
     display: flex;
     flex-direction: column;
     font-size: 1.2rem;
@@ -22,7 +22,7 @@ main {
     margin-top: 35px;
 }
 
-.form__label-input {
+.form-wrap-input {
     height: 30px;
     border: 1px solid grey;
     border-radius: 3px;
@@ -30,12 +30,12 @@ main {
     margin-bottom: 5px;
 }
 
-.form__error {
+.form-wrap__error {
     color: red;
     font-size: 1.2rem;
 }
 
-.form__button {
+.form-wrap__button {
     display: block;
     background-color: rgb(255, 73, 73);
     color: #fff;
@@ -46,7 +46,7 @@ main {
     margin-top: 60px;
 }
 
-.form__item-link {
+.form-wrap__link {
     display: block;
     font-size: 1.2rem;
     text-align: center;
@@ -56,7 +56,7 @@ main {
     color: deepskyblue;
 }
 
-.form__button:hover,
-.form__item-link:hover {
+.form-wrap__button:hover,
+.form-wrap__link:hover {
     opacity: 0.6;
 }
