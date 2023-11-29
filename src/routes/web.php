@@ -16,3 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::view('/mypage', 'mypage')->middleware('auth','verified');
 
 Route::view('/', 'index');
+
+Route::view('/detail', 'detail');
+
+Route::view('/purchase', 'purchase')->middleware('auth','verified');
+

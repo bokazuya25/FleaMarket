@@ -13,11 +13,13 @@
             おすすめの画像
         </div>
 
-        <label class="tab-wrap__label">
-            <input class="tab-wrap__input" type="radio" name="tab">マイリスト
-        </label>
-        <div class="tab-wrap__content">
-            マイリストの画像
-        </div>
-</div>
+        @if (Auth::user())
+            <label class="tab-wrap__label">
+                <input class="tab-wrap__input" type="radio" name="tab">マイリスト
+            </label>
+            <div class="tab-wrap__content">
+                マイリストの画像
+            </div>
+        @endif
+    </div>
 @endsection
