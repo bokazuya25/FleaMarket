@@ -12,14 +12,18 @@
             <input class="form__label-input" type="email" id="email" name="email" value="{{ old('email') }}">
         </label>
         @error('email')
-            <p>{{ $message }}</p>
+        <div class="form__error">
+            <span class="form__error-message">{{ $message }}</span>
+        </div>
         @enderror
 
         <label class="form__label" for="password">パスワード
             <input class="form__label-input" type="password" id="password" name="password">
         </label>
         @error('password')
-            <p>{{ $message }}</p>
+        <div class="form__error">
+            <span class="form__error-message">{{ $message }}</span>
+        </div>
         @enderror
 
         <button class="form__button" type="submit">ログインする</button>
