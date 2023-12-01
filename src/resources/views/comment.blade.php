@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('css')
-    <link rel="stylesheet" href="{{ asset('css/detail.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/item.css') }}">
 @endsection
 
 @section('main')
@@ -21,7 +21,7 @@
                     <img class="item-icon__image" src="{{ asset('img/star.svg') }}" alt="お気に入り">
                 </div>
                 <div class="item__icon">
-                    <a href="/detail">
+                    <a href="/item">
                         <img class="item-icon__image" src="{{ asset('img/comment.svg') }}" alt="コメント">
                     </a>
                 </div>

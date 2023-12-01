@@ -17,7 +17,7 @@ Route::view('/mypage', 'mypage')->middleware('auth','verified');
 
 Route::view('/', 'index');
 
-Route::view('/detail', 'detail');
+Route::view('/item', 'item');
 
 Route::view('/purchase', 'purchase')->middleware('auth','verified');
 
