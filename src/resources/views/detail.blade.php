@@ -21,7 +21,9 @@
                     <img class="item-icon__image" src="{{ asset('img/star.svg') }}" alt="お気に入り">
                 </div>
                 <div class="item__icon">
-                    <img class="item-icon__image" src="{{ asset('img/comment.svg') }}" alt="コメント">
+                    <a href="/item/comment">
+                        <img class="item-icon__image" src="{{ asset('img/comment.svg') }}" alt="コメント">
+                    </a>
                 </div>
             </div>
             <a class="link-button" href="{{ Auth::user() ? '/purchase' : '/login' }}">購入する</a>

@@ -25,7 +25,7 @@
         <div class="address-group">
             <div class="header-content">
                 <h3 class="header-content__title">配送先</h3>
-                <a class="link-button" href="purchase/address">変更する</a>
+                <a class="link-button" href="/purchase/address">変更する</a>
             </div>
             <p class="group__text">〇〇県〇〇市△△1丁目-1-1</p>
         </div>
