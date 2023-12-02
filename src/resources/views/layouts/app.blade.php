@@ -12,7 +12,7 @@
 
 <body>
     <header>
-        <h1 class="title__name">COACHTECH</h1>
+        <img class="header__logo" src="{{ asset('img/logo.svg') }}" alt="">
         <input class="search__item" type="text" placeholder="なにをお探しですか？">
         <nav class="header__nav">
             <ul class="nav__list">

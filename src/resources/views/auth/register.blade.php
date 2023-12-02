@@ -5,7 +5,7 @@
 @endsection
 
 @section('main')
-    <h2 class="main-itle">会員登録</h2>
+    <h2 class="main-title">会員登録</h2>
     <form class="form-wrap" action="/register" method="post">
         @csrf
         <label class="form-wrap__label" for="email">メールアドレス
