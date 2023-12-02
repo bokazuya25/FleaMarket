@@ -10,7 +10,7 @@
             <img class="user-group__icon" src="" alt="">
             <p class="user-group__name">ユーザーユーザー名ユーザー名ユーザー名ユーザー名</p>
         </div>
-        <a class="user-wrap__profile" href="#">プロフィールを編集</a>
+        <a class="user-wrap__profile" href="/mypage/profile">プロフィールを編集</a>
     </div>
 
     <div class="tab-wrap">

@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/mypage', 'mypage')->middleware('auth','verified');
 
+Route::view('/mypage/profile', 'profile');
+
 Route::view('/', 'index');
 
 Route::view('/item', 'item');

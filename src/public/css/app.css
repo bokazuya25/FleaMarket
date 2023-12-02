@@ -2,6 +2,10 @@ html {
     font-size: 62.5%;
 }
 
+body {
+    font-size: 1.4rem;
+}
+
 header {
     display: flex;
     justify-content: space-between;
@@ -35,7 +39,6 @@ header {
 .nav__item-link {
     color: #fff;
     text-decoration: none;
-    font-size: 1.4rem;
 }
 
 .nav__item-button {
