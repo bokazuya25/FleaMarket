@@ -29,6 +29,5 @@
                 <span class="tab-warp__group-text">が必要です。</span>
             </div>
         @endif
-
     </div>
 @endsection

@@ -2,6 +2,49 @@ main {
     font-size: 1.4rem;
 }
 
+/*  mypage-css -------------------- */
+.user-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    width: 80%;
+    height: 200px;
+    margin: 0 auto;
+}
+
+.user-group {
+    display: flex;
+    align-items: center;
+    width: 70%;
+}
+
+.user-group__icon {
+    height: 90px;
+    width: 90px;
+    border: 1px solid grey;
+    border-radius: 50px;
+}
+
+.user-group__name {
+    width: 70%;
+    text-align: left;
+    margin-left: 20px;
+    font-weight: bold;
+    font-size: 1.6rem;
+}
+
+.user-wrap__profile {
+    color: rgb(255, 73, 73);
+    font-weight: bold;
+    text-decoration: none;
+    border: 2px solid rgb(255, 73, 73);
+    border-radius: 3px;
+    padding: 3px 20px;
+}
+
+/* ------------------------------ */
+
 .tab-wrap {
     display: flex;
     flex-wrap: wrap;
@@ -11,7 +54,7 @@ main {
 
 .tab-wrap__label {
     order: -1;
-    width: 100px;
+    width: 120px;
     padding: 5px 10px;
     color: #999;
     font-weight: 600;
