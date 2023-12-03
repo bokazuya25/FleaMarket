@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
 }
 
 header {
@@ -11,6 +11,7 @@ header {
     justify-content: space-between;
     align-items: center;
     background-color: black;
+    height: 45px;
 }
 
 .header__logo {
@@ -34,6 +35,8 @@ header {
     justify-content: space-around;
     align-items: center;
     width: 250px;
+    margin: 0;
+    font-size: 1.2rem;
 }
 
 .nav__item-link {
@@ -50,7 +53,7 @@ header {
     outline: none;
     box-shadow: none;
     cursor: pointer;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
 }
 
 .nav__item-link:hover,
@@ -58,21 +61,13 @@ header {
     opacity: 0.6;
 }
 
-.nav__item-sell {
-    background-color: #fff;
-    width: 60px;
-    height: 30px;
-    padding-top: 5px;
-    text-align: center;
-}
-
 .nav__item-link-sell {
     display: inline-block;
     background-color: #fff;
     color: black;
-    width: 60px;
+    width: 55px;
     height: 30px;
     border-radius:3px;
     text-align: center;
-    padding-top: 5px;
+    padding-top: 6px;
 }

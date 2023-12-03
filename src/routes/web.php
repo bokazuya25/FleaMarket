@@ -25,4 +25,6 @@ Route::view('/purchase', 'purchase')->middleware('auth','verified');
 
 Route::view('/purchase/address', 'address');
 
-Route::view('item/comment', 'comment');
+Route::view('/item/comment', 'comment');
+
+Route::view('/sell', 'sell');

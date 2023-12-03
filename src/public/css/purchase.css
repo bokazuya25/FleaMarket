@@ -1,14 +1,9 @@
-/* * {
-    border: 1px solid red;
-} */
-
 main {
     width: 90%;
     margin: 0 auto;
     margin-top: 70px;
     display: flex;
     justify-content: space-between;
-    font-size: 1.4rem;
 }
 
 .section-wrap {
@@ -17,26 +12,23 @@ main {
 
 .section-group {
     display: flex;
-    justify-content: space-between;
+    margin-left: 30px;
 }
 
 .image-content {
-    width: 100px;
-    margin: 0 30px;
+    width: 90px;
+    height: 120px;
     background-color: grey;
+    flex-shrink: 0;
 }
 
 .item-content {
-    width: 80%;
+    margin-left: 20px;
+    flex-grow: 1;
 }
 
 .item-content__title {
     font-size: 2rem;
-}
-
-.item-content__price,
-.content {
-    font-size: 1.6rem;
 }
 
 .payment-group,
@@ -51,13 +43,14 @@ main {
 
 .header-content__title,
 .header-content__title {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     margin: 0;
 }
 
 .link-button {
     text-decoration: none;
     color: deepskyblue;
+    font-size: 1.4rem;
 }
 
 .group__text {
@@ -73,6 +66,7 @@ main {
 .confirm-group {
     border: 3px solid grey;
     padding: 40px 10% 10px 10%;
+    font-size: 1.4rem;
 }
 
 .confirm-content {

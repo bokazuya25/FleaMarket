@@ -3,7 +3,7 @@ main {
 }
 
 .main-title {
-    font-size: 2rem;
+    font-size: 2.4rem;
     text-align: center;
     margin: 0;
 }
@@ -17,7 +17,7 @@ main {
 .form-wrap__label {
     display: flex;
     flex-direction: column;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     font-weight: bold;
     margin-top: 35px;
 }
@@ -32,7 +32,7 @@ main {
 
 .form-wrap__error {
     color: red;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
 }
 
 .form-wrap__button {
@@ -50,8 +50,7 @@ main {
     display: block;
     font-size: 1.2rem;
     text-align: center;
-    margin-top:15px;
-    font-size: 1.2rem;
+    margin-top: 15px;
     text-decoration: none;
     color: deepskyblue;
 }
@@ -61,8 +60,7 @@ main {
     opacity: 0.6;
 }
 
-
-/* profile */
+/* profile -------------------- */
 .image-group {
     display: flex;
     align-items: center;
@@ -85,7 +83,7 @@ main {
     border-radius: 3px;
     padding: 3px 20px;
     cursor: pointer;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
 }
 
 .image-group__input {

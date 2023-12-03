@@ -11,7 +11,7 @@
                 <img class="image-content__image" src="" alt="商品画像">
             </div>
             <div class="item-content">
-                <h2 class="item-content__title">商品名</h2>
+                <h2 class="item-content__title">てすとてすとてすとてすとてすとてすと</h2>
                 <p class="item-content__price">￥47,000</p>
             </div>
         </div>

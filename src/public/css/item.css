@@ -4,12 +4,11 @@ main {
     margin-top: 70px;
     display: flex;
     justify-content: space-around;
-    font-size: 1.4rem;
 }
 
 .image-wrap,
 .detail-wrap {
-    width: 40%;
+    width: 45%;
 }
 
 .image-group,
@@ -35,9 +34,13 @@ main {
     font-size: 2.4rem;
 }
 
+.item-group__brand {
+    font-size: 1.2rem;
+}
+
 .item-group__price {
     margin: 0;
-    font-size: 1.8rem;
+    font-size: 2rem;
     margin: 10px 0;
 }
 
@@ -70,6 +73,10 @@ main {
     font-weight: bold;
 }
 
+.explanation-group {
+    margin-top: 30px;
+}
+
 .explanation-group__title,
 .information-group__title {
     font-size: 2rem;
@@ -78,14 +85,12 @@ main {
 .explanation-group__text {
     margin-top: 10px;
     margin-bottom: 50px;
-}
-
-.explanation-group {
-    margin-top: 30px;
+    font-size: 1.4rem;
 }
 
 .information-content {
     margin-bottom: 20px;
+    font-size: 1.4rem;
 }
 
 .information-content__title {
@@ -100,15 +105,18 @@ main {
     border-radius: 10px;
     background-color: silver;
     margin-right: 20px;
+    font-size: 1.2rem;
 }
 
 .information-content__text {
     margin-left: 10px;
+    font-size: 1.2rem;
 }
 
 .comment-group {
     margin-top: 50px;
     margin-bottom:40px;
+    font-size: 1.4rem;
 }
 
 .user-area__image {
@@ -129,15 +137,17 @@ main {
 }
 
 .form-group__label {
+    font-size: 1.4rem;
     font-weight: bold;
 }
 
-.form-group__text {
+.form-group__textarea {
     width: 100%;
-    padding: 10px;
+    padding: 5px 10px;
     border: 1px solid grey;
     border-radius: 3px;
     resize: none;
+    font-size: 1.4rem;
 }
 
 .submit-button {

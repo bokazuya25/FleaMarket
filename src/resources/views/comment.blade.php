@@ -52,7 +52,7 @@
         </div>
         <form class="form-group">
             <label class="form-group__label" for="comment">商品へのコメント
-                <textarea class="form-group__text" name="comment" id="comment" rows="10"></textarea>
+                <textarea class="form-group__textarea" name="comment" id="comment" rows="8"></textarea>
             </label>
             <button class="submit-button" type="submit">コメントを送信する</button>
         </form>
