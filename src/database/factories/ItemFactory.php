@@ -15,10 +15,12 @@ class ItemFactory extends Factory
      */
     public function definition()
     {
+        $faker = $this->faker;
+
         return [
-            'name' => $this->faker->word(),
-            'price' => $this->faker->numberBetween(1000, 30000),
-            'description' => $this->faker->realText(50),
+            'name' => $faker->word(),
+            'price' => $faker->numberBetween(1000, 30000),
+            'description' => $faker->realText(50),
             'img_url' => '',
             'user_id' => User::inRandomOrder()->first()->id,
             'condition_id' => Condition::inRandomOrder()->first()->id,

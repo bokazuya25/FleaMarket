@@ -14,12 +14,16 @@ class ProfileFactory extends Factory
      */
     public function definition()
     {
+        static $userId = 1;
+
+        $faker = $this->faker;
+
         return [
-            'user_id' => User::inRandomOrder()->first()->id,
+            'user_id' => $userId++,
             'img_url' => '',
-            'postcode' => $this->faker->postcode,
-            'address' => $this->faker->address,
-            'building' => $this->faker->optional($weight = 0.5)->secondaryAddress(),
+            'postcode' => $faker->postcode,
+            'address' => $faker->prefecture . $faker->city . $faker->ward . $faker->streetAddress,
+            'building' => $faker->optional($weight = 0.5)->secondaryAddress(),
             'created_at' => now(),
             'updated_at' => now(),
         ];
