@@ -12,7 +12,9 @@
 
 <body>
     <header>
-        <img class="header__logo" src="{{ asset('img/logo.svg') }}" alt="">
+        <a class="header__link" href="/">
+            <img class="header__logo" src="{{ asset('img/logo.svg') }}">
+        </a>
         <input class="search__item" type="text" placeholder="なにをお探しですか？">
         <nav class="header__nav">
             <ul class="nav__list">
