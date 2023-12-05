@@ -32,7 +32,7 @@ class CreateNewUser implements CreatesNewUsers
         ])->validate();
 
         return User::create([
-            'name' => $input['email'],
+            'name' => 'User' . $this->faker->numberBetween(10000, 99999),
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
         ]);
