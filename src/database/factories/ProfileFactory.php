@@ -20,7 +20,7 @@ class ProfileFactory extends Factory
 
         return [
             'user_id' => $userId++,
-            'img_url' => '',
+            'img_url' => null,
             'postcode' => $faker->postcode,
             'address' => $faker->prefecture . $faker->city . $faker->ward . $faker->streetAddress,
             'building' => $faker->optional($weight = 0.5)->secondaryAddress(),

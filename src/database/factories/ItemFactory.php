@@ -21,7 +21,7 @@ class ItemFactory extends Factory
             'name' => $faker->word(),
             'price' => $faker->numberBetween(1000, 30000),
             'description' => $faker->realText(50),
-            'img_url' => '',
+            'img_url' => null,
             'user_id' => User::inRandomOrder()->first()->id,
             'condition_id' => Condition::inRandomOrder()->first()->id,
             'created_at' => now(),
