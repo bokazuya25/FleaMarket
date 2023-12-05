@@ -25,13 +25,13 @@
             @foreach ($sell_item as $item)
                 @if ($item->img_url)
                     <div class="tab-wrap__content">
-                        <a class="tab-wrap__content-link" href="/purchase/:item_id">
+                        <a class="tab-wrap__content-link" href="/purchase/{{ $item->id }}">
                             <img class="tab-wrap__content-image" src="{{ $item->img_url }}">
                         </a>
                     </div>
                 @else
                     <div class="tab-wrap__content tab-wrap__content--grey">
-                        <a class="tab-wrap__content-link" href="/purchase/:item_id">画像がありません</a>
+                        <a class="tab-wrap__content-link" href="/purchase/{{ $item->id }}">No Image</a>
                     </div>
                 @endif
 
@@ -50,13 +50,13 @@
             @foreach ($sold_item as $item)
                 @if ($item->img_url)
                     <div class="tab-wrap__content">
-                        <a class="tab-wrap__content-link" href="/purchase/:item_id">
+                        <a class="tab-wrap__content-link" href="/purchase/{{ $item->id }}">
                             <img class="tab-wrap__content-image" src="{{ $item->img_url }}">
                         </a>
                     </div>
                 @else
                     <div class="tab-wrap__content tab-wrap__content--grey">
-                        <a class="tab-wrap__content-link" href="/purchase/:item_id">画像がありません</a>
+                        <a class="tab-wrap__content-link" href="/purchase/{{ $item->id }}">No Image</a>
                     </div>
                 @endif
             @endforeach

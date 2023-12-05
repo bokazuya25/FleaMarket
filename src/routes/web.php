@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MypageController;
+use App\Http\Controllers\PurchaseController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,9 +25,13 @@ Route::view('/', 'index');
 
 Route::view('/item', 'item');
 
-Route::view('/purchase/:item_id', 'purchase')->middleware('auth', 'verified');
+Route::get('/purchase/address/{item_id}', [PurchaseController::class,'address'])->middleware('auth','verified');
 
-Route::view('/purchase/address', 'address');
+Route::post('/purchase/address/update/{item_id}',[PurchaseController::class,'update_address'])->middleware('auth','verified');
+
+Route::get('/purchase/{item_id}', [PurchaseController::class,'index'])->middleware('auth', 'verified');
+
+Route::view('/purchase/payment/{item_id}',[PurchaseController::class,'payment']);
 
 Route::view('/item/comment', 'comment');
 
