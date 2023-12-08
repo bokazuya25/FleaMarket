@@ -10,7 +10,6 @@ class Profile extends Model
     use HasFactory;
 
     protected $fillable = [
-        'img_url',
         'postcode',
         'address',
         'building',

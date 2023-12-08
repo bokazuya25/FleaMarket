@@ -21,6 +21,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'name',
         'email',
         'password',
+        'img_url',
     ];
 
     /**
@@ -44,26 +45,26 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function profile()
     {
-        return $this->hasOne(Profile::class, 'user_id');
+        return $this->hasOne(Profile::class);
     }
 
     public function items()
     {
-        return $this->hasMany(Item::class, 'user_id');
+        return $this->hasMany(Item::class);
     }
 
-    public function likes()
+    public function likeItems()
     {
-        return $this->hasMany(Like::class, 'user_id');
+        return $this->belongsToMany(Item::class, 'likes');
     }
 
     public function comments()
     {
-        return $this->hasMany(Comment::class, 'user_id');
+        return $this->hasMany(Comment::class);
     }
 
-    public function sold_items()
+    public function soldToItems()
     {
-        return $this->hasMany(Sold_item::class, 'user_id');
+        return $this->belongsToMany(Item::class,'sold_items');
     }
 }

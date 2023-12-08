@@ -13,7 +13,9 @@ class Item extends Model
         'name',
         'price',
         'description',
-        'img_url'
+        'img_url',
+        'user_id',
+        'condition_id',
     ];
 
     public function user()
@@ -21,24 +23,24 @@ class Item extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function likes()
+    public function likeUsers()
     {
-        return $this->hasMany(Like::class, 'item_id');
+        return $this->belongsToMany(User::class,'likes');
     }
 
     public function comments()
     {
-        return $this->hasMany(Comment::class, 'item_id');
+        return $this->hasMany(Comment::class);
     }
 
-    public function sold_items()
+    public function soldToUsers()
     {
-        return $this->hasMany(Sold_item::class, 'item_id');
+        return $this->belongsToMany(User::class,'sold_items');
     }
 
-    public function category_items()
+    public function categories()
     {
-        return $this->hasMany(Category_item::class, 'item_id');
+        return $this->belongsToMany(Category::class, 'category_items');
     }
 
     public function condition()
