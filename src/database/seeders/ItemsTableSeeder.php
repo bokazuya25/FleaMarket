@@ -17,14 +17,14 @@ class ItemsTableSeeder extends Seeder
         Item::create([
             'name' => '商品名',
             'price' => '47000',
-            'description' => 'カラー：グレー\n新品商品の状態は良好です。\n傷もありません。\n購入後、即発送いたします。',
-            'img_url' => null,
+            'description' =>"カラー：グレー\n\n新品商品の状態は良好です。\n傷もありません。\n\n購入後、即発送いたします。",
+            'img_url' => '/img/dummy/ellycollection047_TP_V4.jpg',
             'user_id' => '1',
             'condition_id' => '1',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
 
-        Item::factory()->count(10)->create();
+        Item::factory()->count(59)->create();
     }
 }

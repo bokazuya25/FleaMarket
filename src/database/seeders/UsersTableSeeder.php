@@ -20,11 +20,12 @@ class UsersTableSeeder extends Seeder
             'email' => 'test@test.com',
             'email_verified_at' => now(),
             'password' => bcrypt('password'),
+            'img_url' => '/img/default_icon.svg',
             'remember_token' => Str::random(10),
             'created_at' => now(),
             'updated_at' => now(),
         ]);
 
-        User::factory()->count(10)->create();
+        User::factory()->count(20)->create();
     }
 }

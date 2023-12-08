@@ -16,18 +16,21 @@ class CategoriesTableSeeder extends Seeder
     {
         Category::create([
             'name' => '洋服',
-            'created_at'=>now(),
-            'updated_at'=>now(),
+            'parent_id' => null,
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
 
         Category::create([
             'name' => 'メンズ',
+            'parent_id' => 1,
             'created_at' => now(),
             'updated_at' => now(),
         ]);
 
         Category::create([
             'name' => 'レディース',
+            'parent_id' => 1,
             'created_at' => now(),
             'updated_at' => now(),
         ]);

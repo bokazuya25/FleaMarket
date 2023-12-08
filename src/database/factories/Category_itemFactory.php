@@ -3,7 +3,6 @@
 namespace Database\Factories;
 
 use App\Models\Category;
-use App\Models\Item;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class Category_itemFactory extends Factory
@@ -15,8 +14,10 @@ class Category_itemFactory extends Factory
      */
     public function definition()
     {
+        static $item_id = 1;
+
         return [
-            'item_id' => Item::inRandomOrder()->first()->id,
+            'item_id' => $item_id++,
             'category_id' => Category::inRandomOrder()->first()->id,
             'created_at' => now(),
             'updated_at' => now(),

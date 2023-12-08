@@ -14,6 +14,6 @@ class Sold_itemsTableSeeder extends Seeder
      */
     public function run()
     {
-        Sold_item::factory()->count(10)->create();
+        Sold_item::factory()->count(30)->create();
     }
 }
