@@ -1,3 +1,15 @@
+.message-success {
+    display: none;
+    position: fixed;
+    top: 80px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(255, 73, 73);
+    font-size: 2.4rem;
+    font-weight: bold;
+    z-index: 1000;
+    text-align: center;
+}
 
 /*  mypage-css -------------------- */
 .user-wrap {
@@ -6,7 +18,7 @@
     align-items: center;
     text-align: center;
     width: 80%;
-    height: 180px;
+    height: 200px;
     margin: 0 auto;
 }
 
@@ -18,17 +30,9 @@
 
 .user-group__icon {
     object-fit: cover;
-    height: 90px;
-    width: 90px;
+    height: 120px;
+    width: 120px;
     border: 1px solid lightgrey;
-    border-radius: 50%;
-}
-
-.user-group__icon--grey {
-    object-fit: cover;
-    height: 90px;
-    width: 90px;
-    background-color: grey;
     border-radius: 50%;
 }
 
@@ -74,7 +78,7 @@
 }
 
 .tab-wrap__label:hover {
-    opacity: .8;
+    opacity: .6;
 }
 
 .tab-wrap__input {
@@ -85,7 +89,13 @@
     display: none;
     width: 100%;
     padding: 30px 50px;
-    background-color: #fff;
+    border-top: 2px solid lightgrey;
+}
+
+.tab-wrap__group-link {
+    display: none;
+    width: 100%;
+    padding: 30px 50px;
     border-top: 2px solid lightgrey;
 }
 
@@ -100,13 +110,17 @@
     gap: 20px;
 }
 
+.tab-wrap__label:has(:checked) + .tab-wrap__group-link {
+    display: block;
+}
+
+.tab-wrap__group-text {
+    font-size: 1.4rem;
+}
+
 .tab-wrap__content {
     width: 200px;
     height: 200px;
-}
-
-.tab-wrap__content--grey {
-    background-color: lightgrey;
 }
 
 .tab-wrap__content-link {
@@ -117,12 +131,15 @@
     align-items: center;
     text-decoration: none;
     color: white;
+    font-size: 2rem;
+    font-weight: bold;
 }
 
 .tab-wrap__content-image {
     width: 200px;
     height: 200px;
     object-fit: cover;
+    border: 1px solid lightgrey;
 }
 
 .dummy {
@@ -131,4 +148,22 @@
 
 .link-button {
     font-size: 1.8rem;
+}
+
+.link-button:hover {
+    opacity: 0.6;
+}
+
+.redirect-label {
+    width: 200px;
+    margin-left: auto;
+    margin-right: 50px;
+}
+
+.redirect-link {
+    text-decoration: none;
+}
+
+.redirect-link:hover{
+    opacity: 0.6;
 }
