@@ -15,22 +15,26 @@
         <a class="header__link" href="/">
             <img class="header__logo" src="{{ asset('img/logo.svg') }}">
         </a>
-        <input class="search__item" type="text" placeholder="なにをお探しですか？">
-        <nav class="header__nav">
-            <ul class="nav__list">
-                @if (Auth::check())
-                    <form action="/logout" method="post">
-                        @csrf
-                        <li class="nav__item"><button type="submit" class="nav__item-button">ログアウト</button></li>
-                    </form>
-                    <li class="nav__item"><a href="/mypage" class="nav__item-link">マイページ</a></li>
-                @else
-                    <li class="nav__item"><a href="/login" class="nav__item-link">ログイン</a></li>
-                    <li class="nav__item"><a href="/register" class="nav__item-link">会員登録</a></li>
-                @endif
-                <li class="nav__item"><a href="/sell" class="nav__item-link nav__item-link-sell">出品</a></li>
-            </ul>
-        </nav>
+        @if (!request()->is('register','login','purchase/address/*','sell'))
+            <div class="header__search">
+                <input class="search__item" type="text" name="search_text" placeholder="なにをお探しですか？">
+            </div>
+            <nav class="header__nav">
+                <ul class="nav__list">
+                    @if (Auth::check())
+                        <form action="/logout" method="post">
+                            @csrf
+                            <li class="nav__item"><button type="submit" class="nav__item-button">ログアウト</button></li>
+                        </form>
+                        <li class="nav__item"><a href="/mypage" class="nav__item-link">マイページ</a></li>
+                    @else
+                        <li class="nav__item"><a href="/login" class="nav__item-link">ログイン</a></li>
+                        <li class="nav__item"><a href="/register" class="nav__item-link">会員登録</a></li>
+                    @endif
+                    <li class="nav__item"><a href="/sell" class="nav__item-link nav__item-link-sell">出品</a></li>
+                </ul>
+            </nav>
+        @endif
     </header>
 
     <main>
