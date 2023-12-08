@@ -11,16 +11,10 @@ class MypageController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $sell_item = $user->items;
-        $sold_item = $user->sold_items;
+        $sellItem = $user->items;
+        $soldItem = $user->soldToItems;
 
-        $profile = null;
-
-        if ($user->profile) {
-            $profile = $user->profile;
-        }
-
-        return view('mypage', compact('user', 'profile', 'sell_item', 'sold_item'));
+        return view('mypage', compact('user', 'sellItem', 'soldItem'));
     }
 
     public function profile()
@@ -38,25 +32,52 @@ class MypageController extends Controller
     public function update(Request $request)
     {
         $user = Auth::user();
-        $form = $request->all();
-        unset($form['_token']);
-
-        $user->update($form);
-        $fileUrl = null;
+        $userForm = $request->only('name');
+        $userChanged = false;
+        unset($request->all()['_token']);
 
         if ($request->hasFile('file')) {
             $file = $request->file('file');
             $filename = time() . '_' . $file->getClientOriginalName();
             $path = $file->storeAs('uploads', $filename, 'public');
-            $fileUrl = Storage::url($path);
+            $imgUrl = Storage::url($path);
+            $userForm['imgUrl'] = $imgUrl;
         }
 
-        if ($user->profile) {
-            $user->profile->update(array_merge($form, ['img_url' => $fileUrl]));
+        foreach ($userForm as $key => $value) {
+            if ($user->$key != $value) {
+                $userChanged = true;
+                break;
+            }
+        }
+
+        if ($userChanged) {
+            $user->update($userForm);
+        }
+
+        $profileChanged = false;
+        $profile = $user->profile;
+        $profileForm = $request->only(['postcode', 'address', 'building']);
+
+        if ($profile) {
+            foreach ($profileForm as $key => $value) {
+                if ($profile->$key != $value) {
+                    $profileChanged = true;
+                    break;
+                }
+            }
+            if ($profileChanged) {
+                $profile->update($profileForm);
+            }
         } else {
-            $user->profile()->create(array_merge($form, ['img_url' => $fileUrl]));
+            $user->profile()->create($profileForm);
+            $profileChanged = true;
         }
 
-        return redirect('/mypage/profile');
+        if ($userChanged || $profileChanged) {
+            session()->flash('success', 'プロフィールを変更しました');
+        }
+
+        return redirect('/mypage');
     }
 }

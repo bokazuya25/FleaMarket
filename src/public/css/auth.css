@@ -64,7 +64,6 @@ main {
 .image-group {
     display: flex;
     align-items: center;
-    position: relative;
 }
 
 .image-group__icon {
@@ -73,16 +72,6 @@ main {
     border-radius: 50%;
     border: 1px solid lightgrey;
     object-fit: cover;
-}
-
-.image-group__text {
-    position: absolute;
-    left: 5px;
-    border: 2px dashed grey;
-    background-color: white;
-    padding: 1px 2px;
-    opacity: 0.7;
-    font-weight: bold;
 }
 
 .image-group__label {
