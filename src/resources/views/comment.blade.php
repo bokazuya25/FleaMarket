@@ -1,60 +1,40 @@
-@extends('layouts.app')
+@extends('layouts.item_detail')
 
-@section('css')
-    <link rel="stylesheet" href="{{ asset('css/item.css') }}">
-@endsection
-
-@section('main')
-    <div class="image-wrap">
-        <div class="image-group">
-            <img class="image-group__image" src="" alt="商品画像">
-        </div>
+@section('content')
+    <div class="comment-group">
+        @foreach ($comments as $comment)
+            @if (Auth::id() === $comment['userId'])
+                <div class="comment-content comment-content--right">
+                    <div class="user-area user-area--right">
+                        <span class="user-area__name">{{ $comment['userName'] }}</span>
+                        <img class="user-area__image" src="{{ $comment['userIcon'] ?? 'https://knsoza1.com/wp-content/uploads/2020/07/70b3dd52350bf605f1bb4078ef79c9b9.png'}}">
+                    </div>
+                    <div class="comment-area comment-area--right">
+                        <p class="comment-area__text">{{ $comment['comment'] }}</p>
+                    </div>
+                </div>
+            @else
+                <div class="comment-content">
+                    <div class="user-area">
+                        <img class="user-area__image" src="{{ $comment['userIcon'] ?? 'https://knsoza1.com/wp-content/uploads/2020/07/70b3dd52350bf605f1bb4078ef79c9b9.png' }}">
+                        @if ($item->user_id === $comment['userId'])
+                            <span class="user-area__name user-area__seller">出品者</span>
+                        @else
+                            <span class="user-area__name">{{ $comment['userName'] }}</span>
+                        @endif
+                    </div>
+                    <div class="comment-area">
+                        <p class="comment-area__text">{{ $comment['comment'] }}</p>
+                    </div>
+                </div>
+            @endif
+        @endforeach
     </div>
-
-    <div class="detail-wrap">
-        <div class="item-group">
-            <h2 class="item-group__title">商品名</h2>
-            <span class="item-group__brand">ブランド名</span>
-            <p class="item-group__price">￥47,000(値段)</p>
-            <div class="item-unit">
-                <div class="item-icon">
-                    <img class="item-icon__image" src="{{ asset('img/star.svg') }}" alt="お気に入り">
-                </div>
-                <div class="item__icon">
-                    <a href="/item">
-                        <img class="item-icon__image" src="{{ asset('img/comment.svg') }}" alt="コメント">
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="comment-group">
-            <div class="comment-content">
-                <div class="user-area">
-                    <img class="user-area__image" src="">
-                    <span class="user-area__name">名前</span>
-                </div>
-                <p class="comment-content__text">てすと</p>
-            </div>
-            <div class="comment-content">
-                <div class="user-area">
-                    <img class="user-area__image" src="">
-                    <span class="user-area__name">名前</span>
-                </div>
-                <p class="comment-content__text">てすと</p>
-            </div>
-            <div class="comment-content">
-                <div class="user-area">
-                    <img class="user-area__image" src="">
-                    <span class="user-area__name">名前</span>
-                </div>
-                <p class="comment-content__text">てすと</p>
-            </div>
-        </div>
-        <form class="form-group">
-            <label class="form-group__label" for="comment">商品へのコメント
-                <textarea class="form-group__textarea" name="comment" id="comment" rows="8"></textarea>
-            </label>
-            <button class="submit-button" type="submit">コメントを送信する</button>
-        </form>
-    </div>
+    <form class="form-group" action="/item/comment/store/{{ $item->id }}" method="post">
+        @csrf
+        <label class="form-group__label">商品へのコメント
+            <textarea class="form-group__textarea" name="comment"rows="5"></textarea>
+        </label>
+        <button class="submit-button" type="submit">コメントを送信する</button>
+    </form>
 @endsection
