@@ -5,9 +5,11 @@
 @endsection
 
 @section('main')
-    <div class="message-success" id="message">
-        {{ session('success') }}
-    </div>
+    @if (session('success'))
+        <div class="message-success" id="message">
+            {{ session('success') }}
+        </div>
+    @endif
     <script src="https:ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         $(document).ready(function(){
@@ -18,7 +20,7 @@
     <div class="section-wrap">
         <div class="section-group">
             <div class="image-content">
-                <img class="image-content__image" src="" alt="商品画像">
+                <img class="image-content__image" src="{{ $item->img_url }}" alt="商品画像">
             </div>
             <div class="item-content">
                 <h2 class="item-content__title">{{ $item->name }}</h2>
@@ -30,7 +32,7 @@
                 <h3 class="header-content__title">支払方法</h3>
                 <a class="link-button" href="/purchase/payment/{{ $item->id }}">変更する</a>
             </div>
-            <p class="payment-group__text"></p>
+            <p class="payment-group__text">{{ $payment_method ?? ''}}</p>
         </div>
         <div class="address-group">
             <div class="header-content">
@@ -45,7 +47,8 @@
         </div>
     </div>
 
-    <div class="confirm-wrap">
+    <form class="confirm-wrap" action="/purchase/decide/{{ $item->id }}" method="post">
+        @csrf
         <div class="confirm-group">
             <div class="confirm-content confirm-content__price">
                 <p class="confirm-content__title">商品代金</p>
@@ -57,11 +60,10 @@
             </div>
             <div class="confirm-content confirm-content__payment">
                 <p class="confirm-content__title">支払方法</p>
-                <p class="confirm-content__text">コンビニ払い</p>
+                <p class="confirm-content__text">{{ $payment_method ?? '' }}</p>
             </div>
         </div>
-        <form class="form" action="/purchase/decide/{item_id}" method="get">
-            <button class="submit-button">購入する</button>
-        </form>
-    </div>
+        <input type="hidden" name="payment_id" value="{{ $payment_id }}">
+        <button class="submit-button" type="submit">購入する</button>
+    </form>
 @endsection
