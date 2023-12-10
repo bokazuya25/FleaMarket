@@ -31,6 +31,9 @@
         <div class="tab-wrap__group">
             @foreach ($sellItem as $item)
                 <div class="tab-wrap__content">
+                    @if ($item->soldToUsers()->exists())
+                        <div class="sold-out__mark">SOLD OUT</div>
+                    @endif
                     <a class="tab-wrap__content-link" href="/item/{{ $item->id }}">
                         <img class="tab-wrap__content-image" src="{{ $item->img_url }}">
                     </a>
@@ -49,6 +52,7 @@
         <div class="tab-wrap__group">
             @foreach ($soldItem as $item)
                 <div class="tab-wrap__content">
+                    <div class="sold-out__mark">SOLD OUT</div>
                     <a class="tab-wrap__content-link" href="/item/{{ $item->id }}">
                         <img class="tab-wrap__content-image" src="{{ $item->img_url }}">
                     </a>

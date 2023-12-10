@@ -1,7 +1,11 @@
 @extends('layouts.item_detail')
 
 @section('content')
-    <a class="link-button" href="/purchase/{{ $item->id }}">購入する</a>
+    @if ($item->soldToUsers()->exists())
+        <div class="link-button link-button--disabled">売り切れ</div>
+    @else
+        <a class="link-button" href="/purchase/{{ $item->id }}">購入する</a>
+    @endif
     <div class="description-group">
         <h3 class="description-group__title">商品説明</h3>
         <p class="description-group__text">{{ $item->description }}

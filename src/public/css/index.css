@@ -119,6 +119,7 @@
 }
 
 .tab-wrap__content {
+    position: relative;
     width: 200px;
     height: 200px;
 }
@@ -166,4 +167,14 @@
 
 .redirect-link:hover{
     opacity: 0.6;
+}
+
+.sold-out__mark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgb(255, 73, 73);
+    color: white;
+    padding: 5px;
+    font-size: 1.4rem;
 }

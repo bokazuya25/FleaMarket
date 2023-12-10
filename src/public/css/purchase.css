@@ -1,5 +1,6 @@
 main {
     width: 90%;
+    max-width: 1200px;
     margin: 0 auto;
     margin-top: 70px;
     display: flex;
@@ -29,10 +30,17 @@ main {
 }
 
 .image-content {
-    width: 90px;
+    width: 120px;
     height: 120px;
-    background-color: grey;
+    margin: 5px;
     flex-shrink: 0;
+}
+
+.image-content__image {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border: 1px solid lightgrey;
 }
 
 .item-content {
@@ -118,4 +126,5 @@ main {
     font-size: 1.6rem;
     font-weight: bold;
     border: none;
+    cursor: pointer;
 }

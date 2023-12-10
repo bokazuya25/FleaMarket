@@ -7,6 +7,9 @@
 @section('main')
     <div class="image-wrap">
         <div class="image-group">
+            @if ($item->soldToUsers()->exists())
+                <div class="sold-out__mark">SOLD OUT</div>
+            @endif
             <img class="image-group__image" src="{{ $item->img_url }}" alt="商品画像">
         </div>
     </div>
