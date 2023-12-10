@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSoldItemsTable extends Migration
+class CreatePaymentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateSoldItemsTable extends Migration
      */
     public function up()
     {
-        Schema::create('sold_items', function (Blueprint $table) {
+        Schema::create('payments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('item_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->string('method');
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ class CreateSoldItemsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sold_items');
+        Schema::dropIfExists('payments');
     }
 }

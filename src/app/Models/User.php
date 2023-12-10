@@ -6,11 +6,12 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Cashier\Billable;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, Billable;
 
     /**
      * The attributes that are mass assignable.
@@ -65,6 +66,11 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function soldToItems()
     {
-        return $this->belongsToMany(Item::class,'sold_items');
+        return $this->belongsToMany(Item::class, 'sold_items');
+    }
+
+    public function userPayments()
+    {
+        return $this->belongsToMany(Payment::class, 'sold_items');
     }
 }

@@ -25,6 +25,6 @@ class ItemsTableSeeder extends Seeder
             'updated_at' => now(),
         ]);
 
-        Item::factory()->count(59)->create();
+        Item::factory()->count(99)->create();
     }
 }

@@ -14,12 +14,12 @@ class ProfileFactory extends Factory
      */
     public function definition()
     {
-        static $user_id = 1;
+        static $userId = 1;
 
         $faker = $this->faker;
 
         return [
-            'user_id' => $user_id++,
+            'user_id' => $userId++,
             'postcode' => $faker->postcode,
             'address' => $faker->prefecture . $faker->city . $faker->ward . $faker->streetAddress,
             'building' => $faker->optional($weight = 0.5)->secondaryAddress(),

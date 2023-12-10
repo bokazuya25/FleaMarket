@@ -25,7 +25,7 @@ class Item extends Model
 
     public function likeUsers()
     {
-        return $this->belongsToMany(User::class,'likes');
+        return $this->belongsToMany(User::class, 'likes');
     }
 
     public function comments()
@@ -35,7 +35,12 @@ class Item extends Model
 
     public function soldToUsers()
     {
-        return $this->belongsToMany(User::class,'sold_items');
+        return $this->belongsToMany(User::class, 'sold_items');
+    }
+
+    public function itemPayments()
+    {
+        return $this->belongsToMany(Payment::class, 'sold_items');
     }
 
     public function categories()
