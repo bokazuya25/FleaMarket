@@ -16,9 +16,10 @@
             <img class="header__logo" src="{{ asset('img/logo.svg') }}">
         </a>
         @if (!request()->is('register','login','purchase/address/*','sell'))
-            <div class="header__search">
-                <input class="search__item" type="text" name="search_text" placeholder="なにをお探しですか？">
-            </div>
+            <form class="header__search" action="/search" method="get">
+                @csrf
+                <input class="search__item" type="text" name="searchText" placeholder="なにをお探しですか？">
+            </form>
             <nav class="header__nav">
                 <ul class="nav__list">
                     @if (Auth::check())

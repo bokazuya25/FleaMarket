@@ -29,10 +29,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     // 購入関連
     Route::prefix('purchase')->group(function() {
+        Route::get('/{item_id}', [PurchaseController::class, 'index']);
         Route::get('/address/{item_id}', [PurchaseController::class, 'address']);
         Route::post('/address/update/{item_id}', [PurchaseController::class, 'updateAddress']);
-        Route::view('/payment/{item_id}', [PurchaseController::class, 'payment']);
-        Route::get('/{item_id}', [PurchaseController::class, 'index']);
+        Route::get('/payment/{item_id}', [PurchaseController::class, 'payment']);
+        Route::post('/payment/select/{item_id}',[PurchaseController::class,'selectPayment']);
+        Route::post('/decide/{item_id}',[PurchaseController::class,'decidePurchase']);
     });
 
     // 商品関連
@@ -50,6 +52,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 // 認証が不要なルート
 Route::get('/', [IndexController::class, 'index']);
-Route::get('/item/{item_id}', [ItemController::class,'index']);;
+Route::get('/search',[IndexController::class,'search']);
+Route::get('/item/{item_id}', [ItemController::class,'index']);
 
 
