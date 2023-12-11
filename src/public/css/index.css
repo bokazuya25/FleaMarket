@@ -66,6 +66,10 @@
     gap: 20px;
 }
 
+.tab-wrap__label:has(:checked) + .users-table__group {
+    display: block;
+}
+
 .tab-wrap__label:has(:checked) + .tab-wrap__group-link {
     display: block;
 }

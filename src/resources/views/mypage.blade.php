@@ -26,7 +26,7 @@
 
     <div class="tab-wrap">
         <label class="tab-wrap__label">
-            <input class="tab-wrap__input" type="radio" name="tab" value="sell_items" checked>出品した商品
+            <input class="tab-wrap__input" type="radio" name="tab" value="sell_items">出品した商品
         </label>
         <div class="tab-wrap__group">
             @foreach ($sellItem as $item)
@@ -64,9 +64,9 @@
         </div>
 
         <label class="tab-wrap__label">
-            <input class="tab-wrap__input" type="radio" name="tab" value="user_list" {{ $selectedTab == 'user_list' ? 'checked' : '' }}>ユーザー一覧
+            <input class="tab-wrap__input" type="radio" name="tab" value="user_list" checked>ユーザー一覧
         </label>
-        <div class="tab-wrap__group">
+        <div class="tab-wrap__group users-table__group">
             <table class="users__table">
                 <tr class="table__row">
                     <th class="table__header">ID</th>
@@ -90,7 +90,37 @@
                     </tr>
                 @endforeach
             </table>
-            {{ $users->links() }}
+            {{ $users->links('vendor/pagination/paginate') }}
+        </div>
+
+        <label class="tab-wrap__label">
+            <input class="tab-wrap__input" type="radio" name="tab" value="user_list" checked>スタッフ
+        </label>
+        <div class="tab-wrap__group users-table__group">
+            <table class="users__table">
+                <tr class="table__row">
+                    <th class="table__header">ID</th>
+                    <th class="table__header">Name</th>
+                    <th class="table__header">Email</th>
+                    <th class="table__header"></th>
+                </tr>
+                @foreach ($users as $user)
+                    <tr class="table__row">
+                        <td class="table__data data__id">{{ $user->id }}</td>
+                        <td class="table__data data__name">{{ $user->name }}</td>
+                        <td class="table__data data__email">{{ $user->email }}</td>
+                        <td class="table__data data__delete">
+                            <form class="form__wrap" action="/admin/mypage/delete-user" method="post">
+                                @method('delete')
+                                @csrf
+                                <input type="hidden" name="id" value="{{ $user->id }}">
+                                <button class="submit-button" type="submit" onclick="return confirm('本当に削除しますか？')">削除</button>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
+            </table>
+            {{ $users->links('vendor/pagination/paginate') }}
         </div>
     </div>
 @endsection
