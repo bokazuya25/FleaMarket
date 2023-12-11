@@ -1,6 +1,17 @@
 @extends('layouts.item_detail')
 
 @section('content')
+    @if (session('success'))
+        <div class="message-success" id="message">
+            {{ session('success') }}
+        </div>
+        <script src="https:ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $("#message").fadeIn(1000).delay(3000).fadeOut(1000);
+            });
+        </script>
+    @endif
     @if ($item->soldToUsers()->exists())
         <div class="link-button link-button--disabled">売り切れ</div>
     @else
