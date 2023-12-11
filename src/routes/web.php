@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\MypageController;
@@ -55,4 +56,4 @@ Route::get('/', [IndexController::class, 'index']);
 Route::get('/search',[IndexController::class,'search']);
 Route::get('/item/{item_id}', [ItemController::class,'index']);
 
-
+Route::delete('/admin/mypage/delete-user',[AdminController::class,'deleteUser']);
