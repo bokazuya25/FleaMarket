@@ -6,7 +6,7 @@
 
 @section('main')
     <div class="tab-wrap">
-        <label class="tab-wrap__label">
+        <label class="tab-wrap__label recommendation__label">
             <input class="tab-wrap__input" type="radio" name="tab" checked>おすすめ
         </label>
         <div class="tab-wrap__group">
@@ -29,10 +29,9 @@
         <label class="tab-wrap__label">
             <input class="tab-wrap__input" type="radio" name="tab">マイリスト
         </label>
-
         @if (Auth::check())
             <div class="tab-wrap__group">
-                @foreach ($likeItems as $likeItem)
+                @forelse ($likeItems as $likeItem)
                     <div class="tab-wrap__content">
                         @if ($likeItem->soldToUsers()->exists())
                             <div class="sold-out__mark">SOLD OUT</div>
@@ -41,7 +40,9 @@
                             <img class="tab-wrap__content-image" src="{{ $likeItem->img_url }}">
                         </a>
                     </div>
-                @endforeach
+                @empty
+                    <p class="no-message">マイリストはありません</p>
+                @endforelse
 
                 @for ($i = 0; $i < 5; $i++)
                     <div class="tab-wrap__content dummy"></div>
@@ -59,6 +60,5 @@
         <label class="tab-wrap__label redirect-label">
             <a class="redirect-link" href="/">他のおすすめを表示する</a>
         </label>
-
     </div>
 @endsection

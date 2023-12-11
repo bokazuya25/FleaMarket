@@ -11,50 +11,6 @@
     text-align: center;
 }
 
-/*  mypage-css -------------------- */
-.user-wrap {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-    width: 80%;
-    height: 200px;
-    margin: 0 auto;
-}
-
-.user-group {
-    display: flex;
-    align-items: center;
-    width: 70%;
-}
-
-.user-group__icon {
-    object-fit: cover;
-    height: 120px;
-    width: 120px;
-    border: 1px solid lightgrey;
-    border-radius: 50%;
-}
-
-.user-group__name {
-    width: 70%;
-    text-align: left;
-    margin-left: 20px;
-    font-weight: bold;
-}
-
-.user-wrap__profile {
-    color: rgb(255, 73, 73);
-    font-weight: bold;
-    text-decoration: none;
-    border: 2px solid rgb(255, 73, 73);
-    border-radius: 3px;
-    padding: 3px 20px;
-    font-size: 1.4rem;
-}
-
-/* ------------------------------ */
-
 .tab-wrap {
     display: flex;
     flex-wrap: wrap;
@@ -178,3 +134,102 @@
     padding: 5px;
     font-size: 1.4rem;
 }
+
+/*  mypage-css -------------------- */
+.user-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    width: 80%;
+    height: 200px;
+    margin: 0 auto;
+}
+
+.user-group {
+    display: flex;
+    align-items: center;
+    width: 70%;
+}
+
+.user-group__icon {
+    object-fit: cover;
+    height: 120px;
+    width: 120px;
+    border: 1px solid lightgrey;
+    border-radius: 50%;
+}
+
+.user-group__name {
+    width: 70%;
+    text-align: left;
+    margin-left: 20px;
+    font-weight: bold;
+}
+
+.user-wrap__profile {
+    color: rgb(255, 73, 73);
+    font-weight: bold;
+    text-decoration: none;
+    border: 2px solid rgb(255, 73, 73);
+    border-radius: 3px;
+    padding: 3px 20px;
+    font-size: 1.4rem;
+}
+
+.users__table {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.table__row {
+    height: 50px;
+    border-bottom: 1px solid lightgrey;
+    text-align: left;
+}
+
+.table__row:first-child{
+    border-bottom: 2px solid grey;
+}
+
+.table__header,
+.table__data {
+    padding:0 10px;
+}
+
+.data__id {
+    width: 10%;
+}
+
+.data__name {
+    width: 25%;
+}
+
+.data__email {
+    width: 50%;
+}
+
+.data__delete {
+    width: 15%;
+    text-align: center;
+}
+
+.submit-button {
+    width: 100%;
+    max-width: 120px;
+    height: 30px;
+    text-decoration: none;
+    background-color: rgb(255, 73, 73);
+    color: white;
+    border-radius: 3px;
+    text-align: center;
+    font-size: 1.4rem;
+    border: none;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    opacity: 0.6;
+}
+/* ------------------------------ */
