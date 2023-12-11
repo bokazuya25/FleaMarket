@@ -56,6 +56,6 @@
             <input class="form-wrap__input" type="text" name="building" value="{{ $profile->building ?? '' }}">
         </label>
 
-        <button class="form-wrap__button" type="submit">更新する</button>
+        <button class="form-wrap__button" type="submit" onclick="return confirm('プロフィールを更新しますか？')">更新する</button>
     </form>
 @endsection
