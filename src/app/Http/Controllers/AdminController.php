@@ -12,7 +12,6 @@ class AdminController extends Controller
         $userId = $request->id;
         User::find($userId)->delete();
 
-        session(['selectedTab' => 'user_list']);
         return redirect('/mypage')->with('success', 'ユーザーID:' . $userId . 'を削除しました。');
     }
 }

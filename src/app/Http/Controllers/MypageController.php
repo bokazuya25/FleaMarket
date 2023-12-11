@@ -16,9 +16,7 @@ class MypageController extends Controller
         $soldItem = $user->soldToItems;
         $users = User::paginate(10);
 
-        $selectedTab = session('selectedTab', 'sell_items');
-
-        return view('mypage', compact('user', 'sellItem', 'soldItem', 'users', 'selectedTab'));
+        return view('mypage', compact('user', 'sellItem', 'soldItem', 'users'));
     }
 
     public function profile()
