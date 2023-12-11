@@ -2,19 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class MypageController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $user = Auth::user();
         $sellItem = $user->items;
         $soldItem = $user->soldToItems;
+        $users = User::paginate(10);
 
-        return view('mypage', compact('user', 'sellItem', 'soldItem'));
+        $selectedTab = session('selectedTab', 'sell_items');
+
+        return view('mypage', compact('user', 'sellItem', 'soldItem', 'users', 'selectedTab'));
     }
 
     public function profile()
