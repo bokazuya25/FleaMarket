@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PurchaseRequest;
 use App\Models\Item;
 use App\Models\Payment;
 use App\Models\Sold_item;
@@ -15,22 +16,23 @@ class PurchaseController extends Controller
         $user = Auth::user();
         $item = Item::find($item_id);
         $profile = null;
-        $payment = null;
+        $paymentId = null;
+        $paymentMethod = null;
 
         if ($user->profile) {
             $profile = $user->profile;
         }
 
         if ($user->userPayments) {
-            $payment_method = $user->userPayments()->latest('id')->first();
+            $paymentMethod = $user->userPayments()->latest('id')->first();
         }
 
         if (session('newPaymentMethod')) {
-            $payment_id = session('paymentId');
-            $payment_method = session('newPaymentMethod');
+            $paymentId = session('paymentId');
+            $paymentMethod = session('newPaymentMethod');
         }
 
-        return view('purchase', compact('item', 'profile', 'payment_id', 'payment_method'));
+        return view('purchase', compact('item', 'profile', 'paymentId', 'paymentMethod'));
     }
 
     public function address($item_id)
@@ -87,7 +89,7 @@ class PurchaseController extends Controller
         return redirect('/purchase/' . $item_id);
     }
 
-    public function decidePurchase(Request $request, $item_id)
+    public function decidePurchase(PurchaseRequest $request, $item_id)
     {
         $userId = Auth::id();
         $payment_id = $request->input('payment_id');
@@ -98,6 +100,7 @@ class PurchaseController extends Controller
         $sold_items->payment_id = $payment_id;
         $sold_items->save();
 
-        return redirect('/mypage');
+        session()->flash('success', '購入完了しました');
+        return redirect('/item/' . $item_id);
     }
 }

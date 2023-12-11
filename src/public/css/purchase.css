@@ -74,20 +74,20 @@ main {
     font-size: 1.4rem;
 }
 
-.payment-group__text {
-    margin: 0;
-    font-size: 1.6rem;
-    padding-left: 20px;
-    height: 70px;
-}
-
+.payment-content,
 .address-content {
-    font-size: 1.6rem;
+    height: 70px;
     padding-left: 20px;
 }
 
+.payment-content__text,
 .address-content__text {
     margin: 0;
+}
+
+.payment-content__text-error {
+    color: rgb(255, 73, 73);
+    font-weight: bold;
 }
 
 .confirm-wrap {

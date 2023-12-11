@@ -9,13 +9,13 @@
         <div class="message-success" id="message">
             {{ session('success') }}
         </div>
+        <script src="https:ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $("#message").fadeIn(1000).delay(3000).fadeOut(1000);
+            });
+        </script>
     @endif
-    <script src="https:ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            $("#message").fadeIn(1000).delay(3000).fadeOut(1000);
-        });
-    </script>
 
     <div class="section-wrap">
         <div class="section-group">
@@ -32,7 +32,12 @@
                 <h3 class="header-content__title">支払方法</h3>
                 <a class="link-button" href="/purchase/payment/{{ $item->id }}">変更する</a>
             </div>
-            <p class="payment-group__text">{{ $payment_method ?? ''}}</p>
+            <div class="payment-content">
+                <p class="payment-content__text">{{ $paymentMethod ?? ''}}</p>
+                @error('payment_id')
+                    <p class="payment-content__text payment-content__text-error">{{ $errors->first('payment_id') }}</p>
+                @enderror
+            </div>
         </div>
         <div class="address-group">
             <div class="header-content">
@@ -60,10 +65,10 @@
             </div>
             <div class="confirm-content confirm-content__payment">
                 <p class="confirm-content__title">支払方法</p>
-                <p class="confirm-content__text">{{ $payment_method ?? '' }}</p>
+                <p class="confirm-content__text">{{ $paymentMethod ?? '' }}</p>
             </div>
         </div>
-        <input type="hidden" name="payment_id" value="{{ $payment_id }}">
+        <input type="hidden" name="payment_id" value="{{ $paymentId }}">
         <button class="submit-button" type="submit">購入する</button>
     </form>
 @endsection
