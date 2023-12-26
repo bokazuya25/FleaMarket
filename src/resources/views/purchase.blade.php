@@ -69,6 +69,6 @@
             </div>
         </div>
         <input type="hidden" name="payment_id" value="{{ $paymentId }}">
-        <button class="submit-button" type="submit">購入する</button>
+        <button class="submit-button" type="submit" onclick="return confirm('購入しますか？')">購入する</button>
     </form>
 @endsection

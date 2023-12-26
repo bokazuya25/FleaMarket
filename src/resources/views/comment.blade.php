@@ -7,7 +7,7 @@
                 <div class="comment-content comment-content--right">
                     <div class="user-area user-area--right">
                         <span class="user-area__name">{{ $comment['userName'] }}</span>
-                        <img class="user-area__image" src="{{ $comment['userIcon'] ?? 'https://knsoza1.com/wp-content/uploads/2020/07/70b3dd52350bf605f1bb4078ef79c9b9.png'}}">
+                        <img class="user-area__image" src="{{ $comment['userIcon'] }}">
                     </div>
                     <div class="comment-area comment-area--right">
                         <p class="comment-area__text">{{ $comment['comment'] }}</p>
@@ -16,7 +16,7 @@
             @else
                 <div class="comment-content">
                     <div class="user-area">
-                        <img class="user-area__image" src="{{ $comment['userIcon'] ?? 'https://knsoza1.com/wp-content/uploads/2020/07/70b3dd52350bf605f1bb4078ef79c9b9.png' }}">
+                        <img class="user-area__image" src="{{ $comment['userIcon'] }}">
                         @if ($item->user_id === $comment['userId'])
                             <span class="user-area__name user-area__seller">出品者</span>
                         @else
@@ -33,8 +33,8 @@
     <form class="form-group" action="/item/comment/store/{{ $item->id }}" method="post">
         @csrf
         <label class="form-group__label">商品へのコメント
-            <textarea class="form-group__textarea" name="comment"rows="5"></textarea>
+            <textarea class="form-group__textarea" name="comment"rows="5" required></textarea>
         </label>
-        <button class="submit-button" type="submit">コメントを送信する</button>
+        <button class="submit-button" type="submit" onclick="return confirm('コメントを送信しますか？')">コメントを送信する</button>
     </form>
 @endsection

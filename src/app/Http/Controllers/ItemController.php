@@ -24,33 +24,27 @@ class ItemController extends Controller
     public function index($item_id)
     {
         $item = $this->loadItemWithRelations($item_id);
-        $userLiked = $this->checkUserLiked($item);
-
         $category = $item->categories->first();
-        $parentId = $category->parent_id;
-        if ($parentId) {
-            $categories = [
-                'parentCategory' => Category::find($parentId)->name,
-                'childCategory' => $category->name,
-            ];
-        } else {
-            $categories = [
-                'parentCategory' => $category->name,
-            ];
+
+        $categories = [
+            'parentCategory' => Category::find($category->parent_id)->name ?? $category->name,
+        ];
+        if ($category->parent_id) {
+            $categories['childCategory'] = $category->name;
         }
 
-        $data = [
+        return view('item', [
             'item' => $item,
             'likesCount' => $item->likeUsers->count(),
             'commentsCount' => $item->comments->count(),
             'categories' => $categories,
             'condition' => $item->condition->condition,
             'link' => "/item/comment/{$item_id}",
-            'userLiked' => $userLiked,
-        ];
-
-        return view('item', $data);
+            'userLiked' => $this->checkUserLiked($item),
+            'userItem' => $item->user_id == Auth::id(),
+        ]);
     }
+
 
     public function comment($item_id)
     {

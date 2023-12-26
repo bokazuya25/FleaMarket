@@ -23,8 +23,8 @@ class PurchaseController extends Controller
             $profile = $user->profile;
         }
 
-        if ($user->userPayments) {
-            $paymentMethod = $user->userPayments()->latest('id')->first();
+        if (!$user->userPayments->isEmpty()) {
+            $paymentMethod = $user->userPayments()->latest('id')->first()->method;
         }
 
         if (session('newPaymentMethod')) {

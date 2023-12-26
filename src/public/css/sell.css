@@ -1,9 +1,9 @@
 main {
-    margin-top: 60px;
+    margin-top: 110px;
+    margin-bottom: 50px;
 }
 
 .message-success {
-    /* display: none; */
     position: fixed;
     top: 80px;
     left: 50%;
@@ -58,8 +58,15 @@ main {
     display: none;
 }
 
+.image-link {
+    margin: 0 auto;
+}
+
+.image-link:hover {
+    opacity: 0.6;
+}
+
 .preview-image {
-    display: none;
     margin: 10px auto;
     width: 100px;
     height: 100px;

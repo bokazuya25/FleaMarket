@@ -15,7 +15,7 @@
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    margin-top: 20px;
+    margin-top: 45px;
 }
 
 .tab-wrap__label {
@@ -103,6 +103,10 @@
     border: 1px solid lightgrey;
 }
 
+.object-fit--contain {
+    object-fit: contain;
+}
+
 .dummy {
     visibility: hidden;
 }
@@ -139,14 +143,23 @@
     font-size: 1.4rem;
 }
 
-/*  mypage-css -------------------- */
+.permission-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgb(73, 128, 255);
+    color: white;
+    padding: 5px;
+    font-size: 1.4rem;
+}
+
+/*  mypage -------------------- */
 .user-wrap {
     display: flex;
     justify-content: space-between;
     align-items: center;
     text-align: center;
     width: 80%;
-    height: 200px;
     margin: 0 auto;
 }
 
@@ -164,7 +177,7 @@
     border-radius: 50%;
 }
 
-.user-group__name {
+.user-unit {
     width: 70%;
     text-align: left;
     margin-left: 20px;
@@ -181,40 +194,40 @@
     font-size: 1.4rem;
 }
 
-.users__table {
+.users-table {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-.table__row {
+.users-table__row {
     height: 50px;
     border-bottom: 1px solid lightgrey;
     text-align: left;
 }
 
-.table__row:first-child{
+.users-table__row:first-child{
     border-bottom: 2px solid grey;
 }
 
-.table__header,
-.table__data {
+.users-table__header,
+.users-table__data {
     padding:0 10px;
 }
 
-.data__id {
+.users-table__id {
     width: 10%;
 }
 
-.data__name {
+.users-table__name {
     width: 25%;
 }
 
-.data__email {
+.users-table__email {
     width: 50%;
 }
 
-.data__delete {
+.users-table__delete {
     width: 15%;
     text-align: center;
 }

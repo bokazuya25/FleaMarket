@@ -5,6 +5,17 @@
 @endsection
 
 @section('main')
+    @if (session('success'))
+        <div class="message-success" id="message">
+            {{ session('success') }}
+        </div>
+        <script src="https:ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $("#message").fadeIn(1000).delay(3000).fadeOut(1000);
+            });
+        </script>
+    @endif
     <h2 class="main-title">プロフィール設定</h2>
     <script src="https://yubinbango.github.io/yubinbango/yubinbango.js" charset="UTF-8"></script>
     <form class="form-wrap h-adr" action="/mypage/profile/update" method="post" enctype="multipart/form-data">

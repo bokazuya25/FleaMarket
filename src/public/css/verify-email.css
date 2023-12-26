@@ -1,3 +1,7 @@
+main {
+    margin-top: 100px;
+}
+
 .header__wrap {
     padding-top: 60px;
     padding-bottom: 10px;
@@ -19,14 +23,14 @@
 
 .alert-success {
     font-size: 2rem;
-    color: rgb(38,81,207);
+    color: rgb(255,73,73);
 }
 
 .back__button {
     display: block;
     margin-top: 20px;
     font-size: 1.2rem;
-    color: rgb(38, 81, 207);
+    color: deepskyblue;
     text-decoration: none;
 }
 
@@ -50,6 +54,6 @@
 
 .form__input-button {
     border-style: none;
-    background-color: rgb(38, 81, 207);
+    background-color: rgb(255,73,73);
     color: white;
 }

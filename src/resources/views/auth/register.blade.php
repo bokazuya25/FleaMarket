@@ -8,15 +8,15 @@
     <h2 class="main-title">会員登録</h2>
     <form class="form-wrap" action="/register" method="post">
         @csrf
-        <label class="form-wrap__label" for="email">メールアドレス
-            <input class="form-wrap__input" type="email" id="email" name="email" value="{{ old('email') }}">
+        <label class="form-wrap__label">メールアドレス
+            <input class="form-wrap__input" type="email" name="email" value="{{ old('email') }}">
         </label>
         @error('email')
             <div class="form-wrap__error">{{ $message }}</div>
         @enderror
 
-        <label class="form-wrap__label" for="password">パスワード
-            <input class="form-wrap__input" type="password" id="password" name="password">
+        <label class="form-wrap__label">パスワード
+            <input class="form-wrap__input" type="password" name="password">
         </label>
         @error('password')
             <div class="form-wrap__error">{{ $message }}</div>

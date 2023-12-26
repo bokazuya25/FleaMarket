@@ -2,7 +2,7 @@ main {
     width: 80%;
     max-width: 1200px;
     margin: 0 auto;
-    margin-top: 70px;
+    margin-top: 110px;
     display: flex;
     justify-content: space-around;
 }
@@ -135,6 +135,10 @@ main {
     font-weight: bold;
 }
 
+.link-button--blue {
+    background-color: rgb(73, 128, 255);
+}
+
 .link-button--disabled {
     background-color: lightgrey;
 }
@@ -257,4 +261,9 @@ main {
     margin-top: 10px;
     font-weight: bold;
     font-size: 1.6rem;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    opacity: 0.6;
 }

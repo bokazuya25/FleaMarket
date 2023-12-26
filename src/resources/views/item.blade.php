@@ -5,15 +5,17 @@
         <div class="message-success" id="message">
             {{ session('success') }}
         </div>
-        <script src="https:ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script>
             $(document).ready(function(){
                 $("#message").fadeIn(1000).delay(3000).fadeOut(1000);
             });
         </script>
     @endif
+
     @if ($item->soldToUsers()->exists())
         <div class="link-button link-button--disabled">売り切れ</div>
+    @elseif ($userItem)
+        <a class="link-button link-button--blue" href="/sell/{{ $item->id }}">編集する</a>
     @else
         <a class="link-button" href="/purchase/{{ $item->id }}">購入する</a>
     @endif
