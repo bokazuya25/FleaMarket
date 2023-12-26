@@ -6,6 +6,7 @@ use App\Http\Controllers\ItemController;
 use App\Http\Controllers\MypageController;
 use App\Http\Controllers\PurchaseController;
 use App\Http\Controllers\SellController;
+use App\Http\Controllers\ShopOwnerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -47,8 +48,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
     });
 
     // 出品関連
-    Route::get('/sell', [SellController::class, 'index']);
-    Route::post('/sell', [SellController::class, 'create']);
+    Route::get('/sell',[SellController::class,'index']);
+    Route::get('/sell/{item_id}', [SellController::class, 'index']);
+    Route::post('/sell',[SellController::class,'create']);
+    Route::post('/sell/{item_id}', [SellController::class, 'edit']);
 });
 
 // 認証が不要なルート
@@ -56,4 +59,13 @@ Route::get('/', [IndexController::class, 'index']);
 Route::get('/search',[IndexController::class,'search']);
 Route::get('/item/{item_id}', [ItemController::class,'index']);
 
-Route::delete('/admin/mypage/delete-user',[AdminController::class,'deleteUser']);
+Route::get('/admin/show-users',[AdminController::class,'showUsers']);
+Route::get('/admin/show-shops',[AdminController::class,'showShops']);
+Route::delete('/admin/delete-user',[AdminController::class,'deleteUser']);
+Route::get('/admin/interactions/{shop_id}', [AdminController::class, 'interactions']);
+Route::view('/admin/notification','notification');
+Route::post('/admin/send-notification',[AdminController::class,'sendNotification']);
+
+Route::get('/shop-owner/manage-shop-staff/{shop_id}',[ShopOwnerController::class,'showStaff']);
+Route::delete('/shop-owner/delete-shop-staff',[ShopOwnerController::class,'deleteStaff']);
+Route::post('/shop-owner/invite-shop-staff',[ShopOwnerController::class,'inviteStaff']);
