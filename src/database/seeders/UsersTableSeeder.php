@@ -17,24 +17,26 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        $masterPermission = Permission::create(['name'=>'master']);
-        $editorPermission = Permission::create(['name'=>'editor']);
+        $deleteUserPermission = Permission::create(['name' => 'delete-user']);
+        $viewInteractionsPermission = Permission::create(['name' => 'view-interactions']);
+        $sendEmailPermission = Permission::create(['name' => 'send-email']);
+        $manageShopStaffPermission = Permission::create(['name' => 'manage-shop-staff']);
 
-        Role::create(['name'=>'admin'])
-            ->givePermissionTo($masterPermission);
-        Role::create(['name'=>'writer'])
-            ->givePermissionTo($editorPermission);
+        Role::create(['name' => 'Admin'])
+            ->givePermissionTo($deleteUserPermission, $viewInteractionsPermission, $sendEmailPermission);
+        Role::create(['name' => 'ShopOwner'])
+            ->givePermissionTo($manageShopStaffPermission);
 
         User::create([
             'name' => '管理者',
             'email' => 'admin@admin.com',
             'email_verified_at' => now(),
-            'password' =>bcrypt('password'),
+            'password' => bcrypt('password'),
             'img_url' => '/img/default_icon.svg',
             'remember_token' => Str::random(10),
             'created_at' => now(),
             'updated_at' => now(),
-        ])->assignRole('admin');
+        ])->assignRole('Admin');
 
         User::create([
             'name' => '店舗代表者',
@@ -45,7 +47,18 @@ class UsersTableSeeder extends Seeder
             'remember_token' => Str::random(10),
             'created_at' => now(),
             'updated_at' => now(),
-        ])->assignRole('writer');
+        ])->assignRole('shopOwner');
+
+        User::create([
+            'name' => '店舗スタッフ',
+            'email' => 'staff@staff.com',
+            'email_verified_at' => now(),
+            'password' => bcrypt('password'),
+            'img_url' => '/img/default_icon.svg',
+            'remember_token' => Str::random(10),
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
 
         User::create([
             'name' => 'ユーザー名',
@@ -58,6 +71,6 @@ class UsersTableSeeder extends Seeder
             'updated_at' => now(),
         ]);
 
-        User::factory()->count(17)->create();
+        User::factory()->count(16)->create();
     }
 }

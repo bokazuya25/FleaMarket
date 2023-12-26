@@ -52,4 +52,8 @@ class Item extends Model
     {
         return $this->belongsTo(Condition::class);
     }
+
+    public function shops() {
+        return $this->belongsToMany(Shop::class,'shop_items');
+    }
 }
