@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
+use Faker\Factory as Faker;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
 
 class CreateNewUser implements CreatesNewUsers
@@ -31,11 +32,13 @@ class CreateNewUser implements CreatesNewUsers
             'password' => $this->passwordRules(),
         ])->validate();
 
+        $faker = Faker::create();
+
         return User::create([
-            'name' => 'User' . $this->faker->numberBetween(10000, 99999),
+            'name' => 'User' . $faker->numberBetween(10000, 99999),
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
-            'img_url' => '/img/default.svg',
+            'img_url' => '/img/default_icon.svg',
         ]);
     }
 }
