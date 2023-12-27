@@ -11,7 +11,18 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .postCss('resources/css/app.css', 'public/css', [
-        //
-    ]);
+mix.js('resources/js/app.js','public/js')
+   .js('resources/js/payment.js', 'public/js')
+   .postCss('resources/css/app.css', 'public/css')
+   .postCss('resources/css/admin.css', 'public/css')
+   .postCss('resources/css/auth.css', 'public/css')
+   .postCss('resources/css/index.css', 'public/css')
+   .postCss('resources/css/interactions.css', 'public/css')
+   .postCss('resources/css/item.css', 'public/css')
+   .postCss('resources/css/notification.css', 'public/css')
+   .postCss('resources/css/paginate.css', 'public/css')
+   .postCss('resources/css/payment.css', 'public/css')
+   .postCss('resources/css/purchase.css', 'public/css')
+   .postCss('resources/css/sanitize.css', 'public/css')
+   .postCss('resources/css/sell.css', 'public/css')
+   .postCss('resources/css/verify-email.css', 'public/css');

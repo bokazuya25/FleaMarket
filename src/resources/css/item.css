@@ -223,8 +223,7 @@ main {
     height: 35px;
     border: 1px solid lightgrey;
     border-radius: 50px;
-    -o-object-fit: cover;
-       object-fit: cover;
+    object-fit: cover;
 }
 
 .comment-area__text {

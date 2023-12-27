@@ -1,0 +1,17 @@
+{
+    "/js/app.js": "/js/app.js",
+    "/js/payment.js": "/js/payment.js",
+    "/css/interactions.css": "/css/interactions.css",
+    "/css/index.css": "/css/index.css",
+    "/css/auth.css": "/css/auth.css",
+    "/css/admin.css": "/css/admin.css",
+    "/css/app.css": "/css/app.css",
+    "/css/verify-email.css": "/css/verify-email.css",
+    "/css/sell.css": "/css/sell.css",
+    "/css/sanitize.css": "/css/sanitize.css",
+    "/css/purchase.css": "/css/purchase.css",
+    "/css/payment.css": "/css/payment.css",
+    "/css/paginate.css": "/css/paginate.css",
+    "/css/notification.css": "/css/notification.css",
+    "/css/item.css": "/css/item.css"
+}

@@ -38,12 +38,10 @@
     line-height: 1.5; /* 2 */
     overflow-wrap: break-word; /* 3 */
     -moz-tab-size: 4; /* 4 */
-    -o-tab-size: 4;
-       tab-size: 4; /* 4 */
+    tab-size: 4; /* 4 */
     -webkit-tap-highlight-color: transparent; /* 5 */
     -webkit-text-size-adjust: 100%; /* 6 */
-    -moz-text-size-adjust: 100%;
-         text-size-adjust: 100%; /* 6 */
+    text-size-adjust: 100%; /* 6 */
 }
 
 /* Sections
@@ -127,8 +125,7 @@
 
 :where(abbr[title]) {
     text-decoration: underline;
-    -webkit-text-decoration: underline dotted;
-            text-decoration: underline dotted;
+    text-decoration: underline dotted;
 }
 
 /**
@@ -357,4 +354,3 @@
     clip: rect(0, 0, 0, 0);
     position: absolute;
 }
-

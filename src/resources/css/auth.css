@@ -84,8 +84,7 @@ main {
     width: 90px;
     border-radius: 50%;
     border: 1px solid lightgrey;
-    -o-object-fit: cover;
-       object-fit: cover;
+    object-fit: cover;
 }
 
 .image-group__label {

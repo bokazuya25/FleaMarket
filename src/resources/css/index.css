@@ -99,14 +99,12 @@
 .tab-wrap__content-image {
     width: 200px;
     height: 200px;
-    -o-object-fit: cover;
-       object-fit: cover;
+    object-fit: cover;
     border: 1px solid lightgrey;
 }
 
 .object-fit--contain {
-    -o-object-fit: contain;
-       object-fit: contain;
+    object-fit: contain;
 }
 
 .dummy {
@@ -172,8 +170,7 @@
 }
 
 .user-group__icon {
-    -o-object-fit: cover;
-       object-fit: cover;
+    object-fit: cover;
     height: 120px;
     width: 120px;
     border: 1px solid lightgrey;

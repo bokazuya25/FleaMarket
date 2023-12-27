@@ -39,8 +39,7 @@ main {
 .image-content__image {
     width: 120px;
     height: 120px;
-    -o-object-fit: cover;
-       object-fit: cover;
+    object-fit: cover;
     border: 1px solid lightgrey;
 }
 
@@ -129,4 +128,3 @@ main {
     border: none;
     cursor: pointer;
 }
-
