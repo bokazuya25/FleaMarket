@@ -17,9 +17,9 @@
                 <label class="payment-label">
                     <input class="payment-radio" type="radio" name="payment" value="1" checked>クレジットカード
                     <span class="card-brand__area">
-                        <img src="{{ asset('img/jcb.png') }}" alt="JCB">
-                        <img src="{{ asset('img/mastercard.png') }}" alt="MasterCard">
-                        <img src="{{ asset('img/visa.png') }}" alt="Visa">
+                        <img class="card-brand__area-img" src="{{ asset('img/jcb.png') }}" alt="JCB">
+                        <img class="card-brand__area-img" src="{{ asset('img/mastercard.png') }}" alt="MasterCard">
+                        <img class="card-brand__area-img" src="{{ asset('img/visa.png') }}" alt="Visa">
                     </span>
                 </label>
 

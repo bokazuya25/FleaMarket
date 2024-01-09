@@ -27,9 +27,9 @@
             </tr>
             @foreach ($users as $user)
             <tr class="table__row">
-                <td class="table__data">{{ $user->id }}</td>
-                <td class="table__data">{{ $user->name }}</td>
-                <td class="table__data">{{ $user->email }}</td>
+                <td class="table__data users-table__id">{{ $user->id }}</td>
+                <td class="table__data users-table__name">{{ $user->name }}</td>
+                <td class="table__data users-table__email">{{ $user->email }}</td>
                 <td class="table__data users-table__delete">
                     <form class="form__wrap" action="/admin/delete-user" method="post">
                         @method('delete')

@@ -82,7 +82,7 @@
 
                 @can('send-email')
                     <div class="tab-wrap__content">
-                        <a class="tab-wrap__content-link" href="/admin/send-email">
+                        <a class="tab-wrap__content-link" href="/admin/notification">
                             <div class="permission-text">メール送信</div>
                             <img class="tab-wrap__content-image object-fit--contain" src="{{ asset('img/send_email.svg') }}">
                         </a>

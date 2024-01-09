@@ -20,21 +20,21 @@
                 <th class="table__header users-table__delete"></th>
             </tr>
             @foreach ($shopStaff as $staff)
-                <tr class="table__row">
-                    @foreach($staff->users as $user)
+                @foreach($staff->users as $user)
+                    <tr class="table__row">
                         <td class="table__data">{{ $user->id }}</td>
                         <td class="table__data">{{ $user->name }}</td>
                         <td class="table__data">{{ $user->email }}</td>
                         <td class="table__data users-table__delete">
-                            <form class="form__wrap" action="/shop-owner/delete-shop-staff{{ $shop_id }}" method="post">
+                            <form class="form__wrap" action="/shop-owner/delete-shop-staff/{{ $shop_id }}" method="post">
                                 @method('delete')
                                 @csrf
                                 <input type="hidden" name="id" value="{{ $user->pivot->id }}">
                                 <button class="submit-button" type="submit" onclick="return confirm('本当に削除しますか？')">削除</button>
                             </form>
                         </td>
-                    @endforeach
-                </tr>
+                    </tr>
+                @endforeach
             @endforeach
         </table>
         {{ $shopStaff->links('vendor/pagination/paginate') }}

@@ -5,6 +5,18 @@
 @endsection
 
 @section('main')
+    @if (session('success'))
+        <div class="message-success" id="message">
+            {{ session('success') }}
+        </div>
+        <script src="https:ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $("#message").fadeIn(1000).delay(3000).fadeOut(1000);
+            });
+        </script>
+    @endif
+
     <div class="image-wrap">
         <div class="image-group">
             @if ($item->soldToUsers()->exists())
@@ -40,7 +52,9 @@
                 @endif
                 <div class="comment-wrap">
                     <button class="item-icon__button" onclick="location.href='{{ $link }}'">
-                        <img class="item-icon__image" src="{{ request()->is('item/comment/*') ? asset('img/comment_red.svg') : asset('img/comment.svg') }}" alt="コメント">
+                        <img class="item-icon__image"
+                            src="{{ request()->is('item/comment/*') ? asset('img/comment_red.svg') : asset('img/comment.svg') }}"
+                            alt="コメント">
                         <p class="comments-count">{{ $commentsCount }}</p>
                     </button>
                 </div>

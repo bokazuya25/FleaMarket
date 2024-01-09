@@ -16,17 +16,17 @@
                 <th class="table__header shops-table__confirm"></th>
             </tr>
             @foreach ($shops as $shop)
-                <tr class="table__row">
-                    <td class="table__data">{{ $shop->id }}</td>
-                    <td class="table__data">{{ $shop->name }}</td>
-                    @foreach($shop->users as $user)
+                @foreach($shop->users as $user)
+                    <tr class="table__row">
+                        <td class="table__data">{{ $shop->id }}</td>
+                        <td class="table__data">{{ $shop->name }}</td>
                         <td class="table__data">{{ $user->email}}</td>
                         <td class="table__data">{{ $user->name }}</td>
-                    @endforeach
-                    <td class="table__data shops-table__confirm">
-                        <a class="link-button" href="/admin/interactions/{{ $shop->id }}">やり取りを確認する</a>
-                    </td>
-                </tr>
+                        <td class="table__data shops-table__confirm">
+                            <a class="link-button" href="/admin/interactions/{{ $shop->id }}">やり取りを見る</a>
+                        </td>
+                    </tr>
+                @endforeach
             @endforeach
         </table>
         {{ $shops->links('vendor/pagination/paginate') }}

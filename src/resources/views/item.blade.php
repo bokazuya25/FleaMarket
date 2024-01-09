@@ -1,17 +1,6 @@
 @extends('layouts.item_detail')
 
 @section('content')
-    @if (session('success'))
-        <div class="message-success" id="message">
-            {{ session('success') }}
-        </div>
-        <script>
-            $(document).ready(function(){
-                $("#message").fadeIn(1000).delay(3000).fadeOut(1000);
-            });
-        </script>
-    @endif
-
     @if ($item->soldToUsers()->exists())
         <div class="link-button link-button--disabled">売り切れ</div>
     @elseif ($userItem)
@@ -27,9 +16,11 @@
         <h3 class="information-group__title">商品の情報</h3>
         <div class="information-content">
             <span class="information-content__title">カテゴリー</span>
-            @foreach ($categories as $category)
-                <span class="information-content__category">{{ $category }}</span>
-            @endforeach
+            <div class="category-unit">
+                @foreach ($categories as $category)
+                    <span class="information-content__category">{{ $category }}</span>
+                @endforeach
+            </div>
         </div>
         <div class="information-content">
             <span class="information-content__title">商品の状態</span>

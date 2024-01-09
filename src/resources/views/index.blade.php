@@ -21,7 +21,7 @@
                 </div>
             @endforeach
 
-            @for ($i = 0; $i < 5; $i++)
+            @for ($i = 0; $i < 10; $i++)
                 <div class="tab-wrap__content dummy"></div>
             @endfor
         </div>
@@ -44,7 +44,7 @@
                     <p class="no-message">マイリストはありません</p>
                 @endforelse
 
-                @for ($i = 0; $i < 5; $i++)
+                @for ($i = 0; $i < 10; $i++)
                     <div class="tab-wrap__content dummy"></div>
                 @endfor
             </div>
@@ -56,9 +56,5 @@
                 <span class="tab-warp__group-text">が必要です。</span>
             </div>
         @endif
-
-        <label class="tab-wrap__label redirect-label">
-            <a class="redirect-link" href="/">他のおすすめを表示する</a>
-        </label>
     </div>
 @endsection

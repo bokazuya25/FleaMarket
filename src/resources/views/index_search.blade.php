@@ -22,10 +22,10 @@
             @empty
                 <p class="no-message">該当するアイテムはありません</p>
             @endforelse
-
-            @for ($i = 0; $i < 5; $i++)
-                <div class="tab-wrap__content dummy"></div>
-            @endfor
         </div>
+
+        @for ($i = 0; $i < 10; $i++)
+            <div class="tab-wrap__content dummy"></div>
+        @endfor
     </div>
 @endsection
