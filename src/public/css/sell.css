@@ -8,7 +8,9 @@ main {
     top: 80px;
     left: 50%;
     transform: translate(-50%, -50%);
+    width: 100%;
     color: rgb(255, 73, 73);
+    background-color: white;
     font-size: 2.4rem;
     font-weight: bold;
     z-index: 1000;
@@ -23,7 +25,9 @@ main {
 
 .form-wrap {
     margin: auto;
-    width: 400px;
+    width: 90%;
+    max-width: 400px;
+
 }
 
 .form-wrap__label {
@@ -130,7 +134,8 @@ main {
     color: #fff;
     border: none;
     border-radius: 3px;
-    width: 400px;
+    width: 100%;
+    max-width: 400px;
     height: 30px;
     margin-top: 40px;
 }
@@ -139,5 +144,6 @@ main {
 .form-wrap__link:hover {
     opacity: 0.6;
 }
+
 
 

@@ -1,5 +1,7 @@
 main {
+    margin: auto;
     margin-top: 100px;
+    width: 85%;
 }
 
 .header__wrap {
@@ -15,6 +17,7 @@ main {
 
 .body__wrap {
     text-align: center;
+    margin: auto;
 }
 
 .body__text {
@@ -35,7 +38,8 @@ main {
 }
 
 .form__item {
-    width: 300px;
+    width: 90%;
+    max-width: 300px;
     margin: auto;
     margin-top: 20px;
     margin-bottom: 5px;
@@ -57,3 +61,4 @@ main {
     background-color: rgb(255,73,73);
     color: white;
 }
+

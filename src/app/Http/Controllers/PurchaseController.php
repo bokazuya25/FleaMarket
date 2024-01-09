@@ -100,7 +100,6 @@ class PurchaseController extends Controller
         $sold_items->payment_id = $payment_id;
         $sold_items->save();
 
-        session()->flash('success', '購入完了しました');
-        return redirect('/item/' . $item_id);
+        return redirect('/item/' . $item_id)->with('success', '購入完了しました');
     }
 }

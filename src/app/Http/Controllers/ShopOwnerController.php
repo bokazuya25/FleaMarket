@@ -14,9 +14,11 @@ class ShopOwnerController extends Controller
 {
     public function showStaff($shop_id)
     {
-        $shopStaff = Shop::where('id', $shop_id)->with(['users' => function ($query) {
-            $query->role('ShopStaff');
-        }])->paginate(10);
+        $shopStaff = Shop::where('id', $shop_id)
+            ->with(['users' => function ($query) {
+                $query->whereDoesntHave('roles');
+            }])
+            ->paginate(10);
 
         return view('staff', compact('shop_id', 'shopStaff'));
     }
@@ -29,7 +31,8 @@ class ShopOwnerController extends Controller
         return redirect()->back();
     }
 
-    public function inviteStaff(Request $request) {
+    public function inviteStaff(Request $request)
+    {
         $email = $request->input('email');
 
         $token = Str::random(60);
@@ -41,6 +44,6 @@ class ShopOwnerController extends Controller
         $invitationLink = url('/register?token=' . $token);
         Mail::to($email)->send(new StaffInvitation($invitationLink));
 
-        return back()->with('success','招待メールを送信しました');
+        return back()->with('success', '招待メールを送信しました');
     }
 }

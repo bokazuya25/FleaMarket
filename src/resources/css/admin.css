@@ -8,7 +8,9 @@ main {
     top: 80px;
     left: 50%;
     transform: translate(-50%, -50%);
+    width: 100%;
     color: rgb(255, 73, 73);
+    background-color: white;
     font-size: 2.4rem;
     font-weight: bold;
     z-index: 1000;
@@ -86,7 +88,7 @@ main {
 }
 
 .shops-table__email {
-    width: 35%;
+    width: 30%;
 }
 
 .shops-table__owner {
@@ -94,7 +96,7 @@ main {
 }
 
 .shops-table__confirm {
-    width: 15%;
+    width: 20%;
     text-align: center;
 }
 
@@ -120,11 +122,12 @@ main {
     width: 100%;
     max-width: 170px;
     height: 30px;
+    padding: 0 5px;
     text-decoration: none;
     background-color: rgb(73, 128, 255);
     color: white;
     border-radius: 3px;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     border: none;
     cursor: pointer;
     margin: 0 auto;
@@ -143,4 +146,19 @@ main {
     border: none;
     cursor: pointer;
     margin-left: 50px;
+}
+
+@media screen and (max-width:768px) {
+    .tab-wrap__group {
+        padding: 30px 20px;
+    }
+
+    .table__group {
+        font-size: 1.4rem;
+        overflow-x: scroll;
+    }
+
+    .table {
+        white-space: nowrap;
+    }
 }

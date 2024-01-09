@@ -13,7 +13,9 @@ main {
     top: 80px;
     left: 50%;
     transform: translate(-50%, -50%);
+    width: 100%;
     color: rgb(255, 73, 73);
+    background-color: white;
     font-size: 2.4rem;
     font-weight: bold;
     z-index: 1000;
@@ -88,7 +90,7 @@ main {
 }
 
 .item-icon,
-.comment-link{
+.comment-link {
     width: 50px;
     height: 50px;
     text-align: center;
@@ -127,7 +129,7 @@ main {
     width: 90%;
     margin: 20px auto 20px;
     text-decoration: none;
-    background-color:  rgb(255, 73, 73);
+    background-color: rgb(255, 73, 73);
     color: white;
     border-radius: 3px;
     text-align: center;
@@ -162,6 +164,7 @@ main {
 .information-content {
     margin-bottom: 20px;
     font-size: 1.4rem;
+    display: flex;
 }
 
 .information-content__title {
@@ -186,7 +189,7 @@ main {
 
 .comment-group {
     margin: 0 auto;
-    margin:10px 5px 30px;
+    margin: 10px 5px 30px;
     font-size: 1.4rem;
     max-height: 400px;
     overflow-y: auto;
@@ -224,7 +227,7 @@ main {
     border: 1px solid lightgrey;
     border-radius: 50px;
     -o-object-fit: cover;
-       object-fit: cover;
+    object-fit: cover;
 }
 
 .comment-area__text {
@@ -268,3 +271,32 @@ main {
 .submit-button:hover {
     opacity: 0.6;
 }
+
+@media screen and (max-width:768px) {
+    main{
+        display: block;
+    }
+
+    .image-wrap,
+    .detail-wrap {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .detail-wrap {
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+
+    .information-content__category {
+        display: block;
+        margin: 0;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    .category-unit {
+        display: block;
+    }
+}
+

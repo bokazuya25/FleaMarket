@@ -13,7 +13,9 @@ main {
     top: 80px;
     left: 50%;
     transform: translate(-50%, -50%);
+    width: 100%;
     color: rgb(255, 73, 73);
+    background-color: white;
     font-size: 2.4rem;
     font-weight: bold;
     z-index: 1000;
@@ -123,10 +125,45 @@ main {
     border-radius: 3px;
     text-align: center;
     padding-top: 5px;
-    margin: 30px 0;
+    margin: 30px auto;
     font-size: 1.6rem;
     font-weight: bold;
     border: none;
     cursor: pointer;
 }
 
+@media screen and (max-width:768px) {
+    main {
+        display: block;
+    }
+
+    .section-wrap,
+    .confirm-wrap {
+        width: 100%;
+    }
+
+    .section-group {
+        margin: 0;
+    }
+
+    .header-content {
+        margin-top: 20px;
+    }
+
+    .confirm-group {
+        margin: 0 auto;
+        margin-top: 30px;
+        width: 100%;
+        max-width: 400px;
+        padding: 10px 10px 10px 30px;
+    }
+
+    .confirm-content__title {
+        width: 50%;
+        max-width: 150px;
+    }
+
+    .submit-button {
+        max-width: 400px;
+    }
+}

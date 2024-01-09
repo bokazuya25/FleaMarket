@@ -8,7 +8,9 @@ main {
     top: 80px;
     left: 50%;
     transform: translate(-50%, -50%);
+    width: 100%;
     color: rgb(255, 73, 73);
+    background-color: white;
     font-size: 2.4rem;
     font-weight: bold;
     z-index: 1000;
@@ -24,7 +26,8 @@ main {
 .form-wrap {
     margin: auto;
     margin-top: 40px;
-    width: 400px;
+    max-width: 400px;
+    width: 80%;
 }
 
 .form-wrap__label {
@@ -54,8 +57,10 @@ main {
     color: #fff;
     border: none;
     border-radius: 3px;
-    width: 400px;
+    max-width: 400px;
+    width: 80%;
     height: 30px;
+    margin: auto;
     margin-top: 60px;
 }
 
@@ -84,6 +89,7 @@ main {
     width: 90px;
     border-radius: 50%;
     border: 1px solid lightgrey;
+    -o-object-fit: cover;
     object-fit: cover;
 }
 
@@ -102,4 +108,16 @@ main {
 
 .image-group__input {
     display: none;
+}
+
+.image-group {
+    display: block;
+    text-align: center;
+}
+
+.image-group__label {
+    display: block;
+    margin: 20px auto;
+    width: 80%;
+    max-width: 400px;
 }
