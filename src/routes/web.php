@@ -23,24 +23,24 @@ use Illuminate\Support\Facades\Route;
 // 認証が必要なルート
 Route::middleware(['auth', 'verified'])->group(function () {
     // マイページ関連
-    Route::prefix('mypage')->group(function() {
+    Route::prefix('mypage')->group(function () {
         Route::get('/', [MypageController::class, 'index']);
         Route::get('/profile', [MypageController::class, 'profile']);
         Route::post('/profile/update', [MypageController::class, 'update']);
     });
 
     // 購入関連
-    Route::prefix('purchase')->group(function() {
+    Route::prefix('purchase')->group(function () {
         Route::get('/{item_id}', [PurchaseController::class, 'index']);
         Route::get('/address/{item_id}', [PurchaseController::class, 'address']);
         Route::post('/address/update/{item_id}', [PurchaseController::class, 'updateAddress']);
         Route::get('/payment/{item_id}', [PurchaseController::class, 'payment']);
-        Route::post('/payment/select/{item_id}',[PurchaseController::class,'selectPayment']);
-        Route::post('/decide/{item_id}',[PurchaseController::class,'decidePurchase']);
+        Route::post('/payment/select/{item_id}', [PurchaseController::class, 'selectPayment']);
+        Route::post('/decide/{item_id}', [PurchaseController::class, 'decidePurchase']);
     });
 
     // 商品関連
-    Route::prefix('item')->group(function() {
+    Route::prefix('item')->group(function () {
         Route::get('/comment/{item_id}', [ItemController::class, 'comment']);
         Route::post('/comment/store/{item_id}', [ItemController::class, 'store']);
         Route::post('/like/{item_id}', [ItemController::class, 'like']);
@@ -48,24 +48,29 @@ Route::middleware(['auth', 'verified'])->group(function () {
     });
 
     // 出品関連
-    Route::get('/sell',[SellController::class,'index']);
+    Route::get('/sell', [SellController::class, 'index']);
     Route::get('/sell/{item_id}', [SellController::class, 'index']);
-    Route::post('/sell',[SellController::class,'create']);
+    Route::post('/sell', [SellController::class, 'create']);
     Route::post('/sell/{item_id}', [SellController::class, 'edit']);
+
+    // role:Admin
+    Route::middleware(['role:Admin'])->prefix('admin')->group(function () {
+        Route::get('/show-users', [AdminController::class, 'showUsers']);
+        Route::get('/show-shops', [AdminController::class, 'showShops']);
+        Route::delete('/delete-user', [AdminController::class, 'deleteUser']);
+        Route::get('/interactions/{shop_id}', [AdminController::class, 'interactions']);
+        Route::view('/notification', 'notification');
+        Route::post('/send-notification', [AdminController::class, 'sendNotification']);
+    });
+
+    Route::middleware(['role:ShopOwner'])->prefix('shop-owner')->group(function () {
+        Route::get('/manage-shop-staff/{shop_id}', [ShopOwnerController::class, 'showStaff']);
+        Route::delete('/delete-shop-staff', [ShopOwnerController::class, 'deleteStaff']);
+        Route::post('/invite-shop-staff', [ShopOwnerController::class, 'inviteStaff']);
+    });
 });
 
 // 認証が不要なルート
 Route::get('/', [IndexController::class, 'index']);
-Route::get('/search',[IndexController::class,'search']);
-Route::get('/item/{item_id}', [ItemController::class,'index']);
-
-Route::get('/admin/show-users',[AdminController::class,'showUsers']);
-Route::get('/admin/show-shops',[AdminController::class,'showShops']);
-Route::delete('/admin/delete-user',[AdminController::class,'deleteUser']);
-Route::get('/admin/interactions/{shop_id}', [AdminController::class, 'interactions']);
-Route::view('/admin/notification','notification');
-Route::post('/admin/send-notification',[AdminController::class,'sendNotification']);
-
-Route::get('/shop-owner/manage-shop-staff/{shop_id}',[ShopOwnerController::class,'showStaff']);
-Route::delete('/shop-owner/delete-shop-staff',[ShopOwnerController::class,'deleteStaff']);
-Route::post('/shop-owner/invite-shop-staff',[ShopOwnerController::class,'inviteStaff']);
+Route::get('/search', [IndexController::class, 'search']);
+Route::get('/item/{item_id}', [ItemController::class, 'index']);
