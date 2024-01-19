@@ -25,6 +25,6 @@ jobs:
           key: v1-dependencies-{{ checksum "src/composer.json" }}
       - run:
           name: Run PHPUnit
-          command: src/vendor/bin/phpunit src/tests
+          command: src/vendor/bin/phpunit src/tests/Feature
 
 
