@@ -15,10 +15,11 @@ class MypageTest extends TestCase
      *
      * @return void
      */
-    use RefreshDatabase;
+    // use RefreshDatabase;
 
     public function testIndex()
     {
+
         $user = User::factory()->create()->first();
         $this->actingAs($user);
 
