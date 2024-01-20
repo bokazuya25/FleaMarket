@@ -2,8 +2,9 @@ version: 2
 jobs:
   build:
     docker:
-      - image: cimg/php:7.4.9
-      - image: cimg/mysql:8.0.26
+      - image: circleci/php:7.4.9
+      - image: circleci/mysql:8.0.26
+
     working_directory: ~/ci-demo
     steps:
       - checkout
@@ -26,5 +27,3 @@ jobs:
       - run:
           name: Run PHPUnit
           command: src/vendor/bin/phpunit src/tests/Feature
-
-
