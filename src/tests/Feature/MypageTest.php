@@ -15,7 +15,7 @@ class MypageTest extends TestCase
      *
      * @return void
      */
-    // use RefreshDatabase;
+    use RefreshDatabase;
 
     public function testIndex()
     {
