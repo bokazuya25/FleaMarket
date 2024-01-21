@@ -55,8 +55,14 @@ class MypageController extends Controller
         if ($request->hasFile('file')) {
             $file = $request->file('file');
             $filename = time() . '_' . $file->getClientOriginalName();
-            $path = $file->storeAs('uploads', $filename, 'public');
-            $imgUrl = Storage::url($path);
+
+            // AWS S3 に保存
+            $path = $file->storeAs('flea-market', $filename, 's3');
+            $imgUrl = Storage::disk('s3')->url($path);
+
+            // public に保存
+            // $path = $file->storeAs('uploads', $filename, 'public');
+            // $imgUrl = Storage::url($path);
             $userForm['img_url'] = $imgUrl;
         }
 
