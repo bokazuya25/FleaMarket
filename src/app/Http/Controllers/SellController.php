@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SellRequest;
 use App\Models\Category;
 use App\Models\Category_item;
 use App\Models\Condition;
 use App\Models\Item;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class SellController extends Controller
@@ -45,14 +45,21 @@ class SellController extends Controller
         return view('sell', $data);
     }
 
-    public function create(Request $request)
+    public function create(SellRequest $request)
     {
         $form = $request->all();
 
         $file = $request->file('img_url');
         $filename = time() . '_' . $file->getClientOriginalName();
-        $path = $file->storeAs('uploads', $filename, 'public');
-        $form['img_url'] = Storage::url($path);
+
+        // AWS S3 に保存
+        $path = $file->storeAs('flea-market', $filename, 's3');
+        $form['img_url'] = Storage::disk('s3')->url($path);
+
+        // public に保存
+        // $path = $file->storeAs('uploads', $filename, 'public');
+        // $form['img_url'] = Storage::url($path);
+
         $form['price'] = str_replace(',', '', $form['price']);
         $newItem = Item::create($form);
 
@@ -64,19 +71,26 @@ class SellController extends Controller
         return redirect()->back()->with('success', '出品しました');
     }
 
-    public function edit(Request $request,$item_id) {
+    public function edit(SellRequest $request, $item_id)
+    {
         $form = $request->all();
         unset($form['_token']);
 
-        if(isset($form['img_url'])) {
+        if (isset($form['img_url'])) {
             $file = $request->file('img_url');
             $filename = time() . '_' . $file->getClientOriginalName();
-            $path = $file->storeAs('uploads', $filename, 'public');
-            $form['img_url'] = Storage::url($path);
+
+            // AWS S3 に保存
+            $path = $file->storeAs('flea-market', $filename, 's3');
+            $form['img_url'] = Storage::disk('s3')->url($path);
+
+            // public に保存
+            // $path = $file->storeAs('uploads', $filename, 'public');
+            // $form['img_url'] = Storage::url($path);
         }
 
-        if(isset($form['price'])) {
-            $form['price'] = str_replace(',','',$form['price']);
+        if (isset($form['price'])) {
+            $form['price'] = str_replace(',', '', $form['price']);
         }
 
         Item::find($item_id)->update($form);

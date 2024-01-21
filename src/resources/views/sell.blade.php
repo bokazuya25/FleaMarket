@@ -33,6 +33,9 @@
                 </label>
             </div>
         </span>
+        @error('img_url')
+            <div class="form-wrap__error">{{ $message }}</div>
+        @enderror
 
         <h3 class="form-wrap__title">商品の詳細</h3>
         <label class="form-wrap__label">カテゴリー
@@ -43,7 +46,7 @@
                 @endforeach
             </select>
         </label>
-        @error('category')
+        @error('category_id')
             <div class="form-wrap__error">{{ $message }}</div>
         @enderror
 
@@ -55,7 +58,7 @@
                 @endforeach
             </select>
         </label>
-        @error('password')
+        @error('condition_id')
             <div class="form-wrap__error">{{ $message }}</div>
         @enderror
 
@@ -63,24 +66,24 @@
         <label class="form-wrap__label">商品名
             <input class="form-wrap__input" type="text" name="name" value="{{ $item->name ?? '' }}">
         </label>
-        @error('category')
+        @error('name')
             <div class="form-wrap__error">{{ $message }}</div>
         @enderror
 
         <label class="form-wrap__label">商品の説明
             <textarea class="form-wrap__textarea" name="description" cols="30" rows="5">{{ $item->description ?? '' }}</textarea>
         </label>
-        @error('password')
-            <div class="form-wrapg__error">{{ $message }}</div>
+        @error('description')
+            <div class="form-wrap__error">{{ $message }}</div>
         @enderror
 
         <h3 class="form-wrap__title">販売価格</h3>
         <label class="form-wrap__label">販売価格
             <div class="input-wrap">
-                <input class="form-wrap__input input-price" type="text" id="price" name="price"  value="{{ $item->price ?? '' }}">
+                <input class="form-wrap__input input-price" type="text" id="price" name="price"  value="{{ $item->price ?? '' }}" pattern="^[1-9][0-9]*$">
             </div>
         </label>
-        @error('category')
+        @error('price')
             <div class="form-wrap__error">{{ $message }}</div>
         @enderror
 
