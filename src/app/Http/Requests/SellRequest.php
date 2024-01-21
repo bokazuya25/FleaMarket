@@ -23,14 +23,20 @@ class SellRequest extends FormRequest
      */
     public function rules()
     {
-        return [
+        $rules = [
             'img_url' => 'required|image',
             'category_id' => 'required',
             'condition_id' => 'required',
             'name' => 'required',
             'description' => 'required',
-            'price' => 'required|regex:/^[1-9][0-9]*$/',
+            'price' => 'required|regex:/^[1-9][0-9]*$/'
         ];
+
+        if ($this->route('item_id')) {
+            $rules['img_url'] = 'image';
+        }
+
+        return $rules;
     }
 
     public function messages()
