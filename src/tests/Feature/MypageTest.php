@@ -47,7 +47,7 @@ class MypageTest extends TestCase
         $user = User::factory()->create()->first();
         $this->actingAs($user);
 
-        Storage::fake('public');
+        Storage::fake('s3');
         $file = UploadedFile::fake()->image('profile.jpg');
 
         $data = [
@@ -59,7 +59,6 @@ class MypageTest extends TestCase
         ];
 
         $response = $this->post('/mypage/profile/update', $data);
-        $response->assertStatus(302);
         $response->assertRedirect();
         $user = $user->fresh();
 
