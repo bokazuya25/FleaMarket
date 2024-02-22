@@ -17,7 +17,7 @@
 勉強のアウトプットとして作成しました。
 
 ## アプリケーションURL
-http://18.181.221.66
+http://18.181.221.66(現在停止中)
 
 ## 機能一覧
 ログイン機能、メール認証、商品の閲覧、商品検索  
@@ -78,7 +78,7 @@ $ php artisan storage:link
 $ sudo chmod -R 775 storage
 
 # bootstrap/cache ディレクトリの権限変更
-$ sudo chmod -$ 775 bootstrap/cache
+$ sudo chmod -R 775 bootstrap/cache
 ```
 
 ### PHPコンテナ内
